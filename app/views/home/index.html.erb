@@ -1,9 +1,60 @@
 <h1>Charts</h1>
-
-<div class="ct-chart"></div>
-<div class="ct-chart1"></div>
-
-<div><canvas id="canvas"></canvas></div>
-
-
-<%= @direct_conversion %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Direct Conversion Result
+  </div>
+  <div class="panel-body">
+    <%= content_tag 'div',
+                    id: 'direct-conversion-result',
+                    data: { indexes: @direct_conversion_result[:indexes],
+                            values: @direct_conversion_result[:values]
+                    } do %>
+    <% end %>
+    <div><canvas id="direct_canvas" width="800" height="400"></canvas></div>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Reverse Conversion Result
+  </div>
+  <div class="panel-body">
+    <%= content_tag 'div',
+                    id: 'reverse-conversion-result',
+                    data: { indexes: @reverse_conversion_result[:indexes],
+                            values: @reverse_conversion_result[:values]
+                    } do %>
+    <% end %>
+    <div><canvas id="reverse_canvas" width="800" height="400"></canvas></div>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Detailed Conversion Data
+  </div>
+  <div class="panel-body">
+    <div id="details-table-holder" class="table-responsive">
+      <table class="table">
+        <% @direct_conversion.size.times do |index|%>
+            <th>
+              <%= index %>
+            </th>
+        <% end %>
+        <th>
+          Sum
+        </th>
+        <% @direct_conversion.each do |conversion_unit| %>
+            <tr>
+              <% conversion_unit[1][:components].each do |component| %>
+                  <td>
+                    <%= "(#{component.real.round(2)} +  #{component.imag.round(2)}i)"%>
+                  </td>
+              <% end %>
+              <td>
+                <%= conversion_unit[1][:value][:abs].round(2) %>
+              </td>
+            </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
