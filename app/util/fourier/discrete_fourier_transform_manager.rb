@@ -7,12 +7,12 @@ module Fourier
     end
 
     def direct_conversion
-      initialize_components(1, -1)
+      initialize_components(1.0/32.0, -1)
       @dft_components
     end
 
     def reverse_conversion
-      initialize_components(1/32, 1)
+      initialize_components(1, 1)
       @dft_components
     end
 
