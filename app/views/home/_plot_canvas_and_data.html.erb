@@ -1,0 +1,10 @@
+<div class="plot" id="<%= "#{plot_id}" %>">
+  <%= content_tag 'div',
+                  id: "#{plot_id}_data",
+                  data: { indexes: values[:x],
+                          values: values[:y]
+                  } do %>
+  <% end %>
+  <canvas id=<%= "#{plot_id}_canvas" %> width="800" height="400"></canvas>
+</div>
+
