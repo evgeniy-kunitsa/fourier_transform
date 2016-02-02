@@ -15,5 +15,7 @@ class HomeController < ApplicationController
     @reverse_conversion_result[:values] = @reverse_conversion.collect do |conversion_unit|
       conversion_unit[1][:value][:abs]
     end
+
+    @original_plot_points = manager.original_function_plot_points
   end
 end

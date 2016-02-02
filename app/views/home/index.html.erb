@@ -19,6 +19,16 @@
                }
            }
 %>
+<%= render partial: 'panel_with_plot',
+           locals: {
+               plot_title: 'Original Function Plot',
+               plot_id: 'original_function',
+               values: {
+                   x: @original_plot_points[:x],
+                   y: @original_plot_points[:y]
+               }
+           }
+%>
 
 <div class="panel panel-default">
   <div class="panel-heading">
