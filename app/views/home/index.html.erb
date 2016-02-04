@@ -29,35 +29,10 @@
                }
            }
 %>
-
-<div class="panel panel-default">
-  <div class="panel-heading">
-    Detailed Conversion Data
-  </div>
-  <div class="panel-body">
-    <div id="details-table-holder" class="table-responsive">
-      <table class="table">
-        <% @direct_conversion.size.times do |index|%>
-            <th>
-              <%= index %>
-            </th>
-        <% end %>
-        <th>
-          Sum
-        </th>
-        <% @direct_conversion.each do |conversion_unit| %>
-            <tr>
-              <% conversion_unit[1][:components].each do |component| %>
-                  <td>
-                    <%= "(#{component.real.round(2)} +  #{component.imag.round(2)}i)"%>
-                  </td>
-              <% end %>
-              <td>
-                <%= conversion_unit[1][:value][:abs].round(2) %>
-              </td>
-            </tr>
-        <% end %>
-      </table>
-    </div>
-  </div>
-</div>
+<%= render partial: 'interactive_conversion_data_table',
+           locals: { direct_conversion: @direct_conversion }
+%>
+<br>
+<%= render partial: 'full_coversion_data_table',
+           locals: { direct_conversion: @direct_conversion }
+%>
