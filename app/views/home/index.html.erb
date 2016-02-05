@@ -1,6 +1,38 @@
 <h1>Charts</h1>
-
-<div class="ct-chart"></div>
-<div class="ct-chart1"></div>
-
-<div><canvas id="canvas"></canvas></div>
+<%= render partial: 'panel_with_plot',
+           locals: {
+               plot_title: 'Direct Conversion Result',
+               plot_id: 'direct_conversion',
+               values: {
+                   x: @direct_conversion_result[:indexes],
+                   y: @direct_conversion_result[:values]
+               }
+           }
+%>
+<%= render partial: 'panel_with_plot',
+           locals: {
+               plot_title: 'Reverse Conversion Result',
+               plot_id: 'reverse_conversion',
+               values: {
+                   x: @reverse_conversion_result[:indexes],
+                   y: @reverse_conversion_result[:values]
+               }
+           }
+%>
+<%= render partial: 'panel_with_plot',
+           locals: {
+               plot_title: 'Original Function Plot',
+               plot_id: 'original_function',
+               values: {
+                   x: @original_plot_points[:x],
+                   y: @original_plot_points[:y]
+               }
+           }
+%>
+<%= render partial: 'interactive_conversion_data_table',
+           locals: { direct_conversion: @direct_conversion }
+%>
+<br>
+<%= render partial: 'full_coversion_data_table',
+           locals: { direct_conversion: @direct_conversion }
+%>

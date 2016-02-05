@@ -1,0 +1,42 @@
+<h1>Detailed Conversion Data</h1>
+<h3 class="data-table-header">
+  Details for variable
+  <div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false" id="data-table-switch">
+      <span id="variable-selector">Select variable</span> <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu scrollable-menu">
+      <% direct_conversion.size.times do |index|%>
+          <li>
+            <a href="#" class="conversion-table-toggle">
+              <%= "x#{index}" %>
+            </a>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+</h3>
+<% direct_conversion.each_with_index do |conversion_unit, unit_index| %>
+  <div class="data-table-holder" id="data-table-<%=unit_index%>">
+    <div class="row">
+      <% conversion_unit[1][:components].each_slice(8).to_a.each_with_index do |data, multiplier| %>
+        <div class="col-md-3">
+          <table class="table">
+            <% data.each_with_index do |component, index| %>
+              <tr>
+                <th>
+                  <%= index + multiplier * 8 %>
+                </th>
+                <td>
+                  <%= "(#{component.real.round(2)} +  #{component.imag.round(2)}i)"%>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      <% end %>
+      <h4 class="values-sum-header">Sum (absolute): <%= conversion_unit[1][:value][:abs] %></h4>
+    </div>
+  </div>
+<% end %>
