@@ -1,0 +1,30 @@
+= javascript_include_tag 'fast_fourier_transform'
+
+h1 Fast Fourier Transform
+ul.nav.nav-tabs
+  li.active
+    a.active data-toggle="tab" href="#direct_conversion_tab" Direct Conversion Result
+  li
+    a data-toggle="tab" href="#reverse_conversion_tab" Reverse Conversion Result
+.tab-content
+  #direct_conversion_tab.tab-pane.active
+    == render partial: 'plot',
+              locals: { \
+                plot_title: 'Direct Conversion Result',
+                  plot_id: 'fast_direct_conversion',
+                  values: { \
+                    x: @direct_conversion_result[:indexes],
+                    y: @direct_conversion_result[:values] \
+                } \
+              }
+
+  #reverse_conversion_tab.tab-pane
+    == render partial: 'plot',
+              locals: { \
+                plot_title: 'Reverse Conversion Result',
+                  plot_id: 'fast_reverse_conversion',
+                  values: { \
+                    x: @reverse_conversion_result[:indexes],
+                    y: @reverse_conversion_result[:values] \
+                  } \
+                }
