@@ -2,7 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-
 hide_tables = ()->
   for data_table_holder in $('.data-table-holder')
     $(data_table_holder).hide()
@@ -37,7 +36,8 @@ build_charts = () ->
     ]
   }
   $("#direct_conversion_canvas").css('width', 900).css('height', 600)
-  direct_chart = new Chart($("#direct_conversion_canvas").get(0).getContext("2d")).Bar(direct_chart_data)
+  direct_chart = new Chart($("#direct_conversion_canvas").get(0).getContext("2d"))
+    .Bar(direct_chart_data, { scaleBeginAtZero: false, responsive: true })
 
   reverse_chart_data = {
     labels : $('#reverse_conversion_data').data('indexes'),
@@ -52,7 +52,8 @@ build_charts = () ->
     ]
   }
   $("#reverse_conversion_canvas").css('width', 900).css('height', 600)
-  reverse_chart = new Chart($("#reverse_conversion_canvas").get(0).getContext("2d")).Line(reverse_chart_data)
+  reverse_chart = new Chart($("#reverse_conversion_canvas").get(0).getContext("2d"))
+    .Line(reverse_chart_data, { responsive: true })
 
   original_function_data = {
     labels : $('#original_function_data').data('indexes'),
@@ -67,9 +68,8 @@ build_charts = () ->
     ]
   }
   $("#original_function_canvas").css('width', 900).css('height', 600)
-  original_chart = new Chart($("#original_function_canvas").get(0).getContext("2d")).Line(original_function_data)
-
-
+  original_chart = new Chart($("#original_function_canvas").get(0).getContext("2d"))
+    .Line(original_function_data, { responsive: true })
 
 $ ->
   hide_tables()

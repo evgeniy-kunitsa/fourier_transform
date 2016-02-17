@@ -23,16 +23,11 @@ show_selected_table = (selected_table_toggle) ->
   $('#variable-selector').text("x#{table_id}")
 
 build_charts = () ->
-  options = {
-    scaleBeginAtZero: false,
-    responsive: true
-  }
-
   fast_direct_chart_data = {
     labels : $('#fast_direct_conversion_data').data('indexes'),
     datasets : [
       {
-        fillColor : "rgba(62,80,180,0.5)",
+        fillColor : "rgba(62,80,180,0)",
         strokeColor : "rgba(62,80,180,1)",
         pointColor : "rgba(62,80,180,1)",
         pointStrokeColor : "#fff",
@@ -41,7 +36,8 @@ build_charts = () ->
     ]
   }
   $("#fast_direct_conversion_canvas").css('width', 900).css('height', 600)
-  fast_direct_chart = new Chart($("#fast_direct_conversion_canvas").get(0).getContext("2d")).Bar(fast_direct_chart_data, options)
+  fast_direct_chart = new Chart($("#fast_direct_conversion_canvas").get(0).getContext("2d"))
+    .Line(fast_direct_chart_data, { scaleBeginAtZero: false, responsive: true })
 
   fast_reverse_chart_data = {
     labels : $('#fast_reverse_conversion_data').data('indexes'),
@@ -56,8 +52,24 @@ build_charts = () ->
     ]
   }
   $("#fast_reverse_conversion_canvas").css('width', 900).css('height', 600)
-  fast_reverse_chart = new Chart($("#fast_reverse_conversion_canvas").get(0).getContext("2d")).Line(fast_reverse_chart_data)
+  fast_reverse_chart = new Chart($("#fast_reverse_conversion_canvas").get(0).getContext("2d"))
+    .Line(fast_reverse_chart_data, { responsive: true })
 
+  original_function_data = {
+    labels : $('#original_function_data').data('indexes'),
+    datasets : [
+      {
+        fillColor : "rgba(0,187,211,0.5)",
+        strokeColor : "rgba(0,187,211,1)",
+        pointColor : "rgba(0,187,211,1)",
+        pointStrokeColor : "#fff",
+        data : $('#original_function_data').data('values')
+      },
+    ]
+  }
+  $("#original_function_canvas").css('width', 900).css('height', 600)
+  original_chart = new Chart($("#original_function_canvas").get(0).getContext("2d"))
+    .Line(original_function_data, { responsive: true })
 
 $ ->
   hide_tables()

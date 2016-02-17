@@ -1,11 +1,13 @@
 = javascript_include_tag 'fast_fourier_transform'
-
 h1 Fast Fourier Transform
+h2 iterations: #{@operations_counter}
 ul.nav.nav-tabs
   li.active
     a.active data-toggle="tab" href="#direct_conversion_tab" Direct Conversion Result
   li
     a data-toggle="tab" href="#reverse_conversion_tab" Reverse Conversion Result
+  li
+    a data-toggle="tab" href="#original_function_tab" Original Function Plot
 .tab-content
   #direct_conversion_tab.tab-pane.active
     == render partial: 'plot',
@@ -28,3 +30,14 @@ ul.nav.nav-tabs
                     y: @reverse_conversion_result[:values] \
                   } \
                 }
+
+  #original_function_tab.tab-pane
+    == render partial: 'plot',
+            locals: { \
+              plot_title: 'Original Function Plot',
+                plot_id: 'original_function',
+                values: {\
+                  x: @original_plot_points[:x],
+                  y: @original_plot_points[:y] \
+              } \
+            }
