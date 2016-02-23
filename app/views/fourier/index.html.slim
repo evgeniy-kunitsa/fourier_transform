@@ -1,6 +1,6 @@
-= javascript_include_tag 'discrete_fourier_transform'
-h1 Discrete Fourier Transform
-h2 iterations: #{@operations_counter}
+= javascript_include_tag "#{@mode}_fourier_transform"
+h1
+  = "#{@mode.capitalize} Fourier Transform"
 ul.nav.nav-tabs
   li.active
     a.active data-toggle="tab" href="#direct_conversion_tab" Direct Conversion Result
@@ -8,47 +8,45 @@ ul.nav.nav-tabs
     a data-toggle="tab" href="#reverse_conversion_tab" Reverse Conversion Result
   li
     a data-toggle="tab" href="#original_function_tab" Original Function Plot
-  li
-    a data-toggle="tab" href="#conversion_data" Conversion Data
-  li
-    a data-toggle="tab" href="#full_data" Full data table
+
+  - if @mode == 'discrete'
+    li
+      a data-toggle="tab" href="#conversion_data" Conversion Data
+
 .tab-content
   #direct_conversion_tab.tab-pane.active
     == render partial: 'plot',
-              locals: { \
+              locals: {\
                 plot_title: 'Direct Conversion Result',
                 plot_id: 'direct_conversion',
-                values: { \
-                  x: @direct_conversion_result[:indexes],
-                  y: @direct_conversion_result[:values] \
+                values: {\
+                  x: @conversion[:result][:direct][:indexes],
+                  y: @conversion[:result][:direct][:values] \
                 } \
               }
 
   #reverse_conversion_tab.tab-pane
     == render partial: 'plot',
-              locals: { \
+              locals: {\
                 plot_title: 'Reverse Conversion Result',
                 plot_id: 'reverse_conversion',
-                values: { \
-                  x: @reverse_conversion_result[:indexes],
-                  y: @reverse_conversion_result[:values] \
+                values: {\
+                  x: @conversion[:result][:reverse][:indexes],
+                  y: @conversion[:result][:reverse][:values] \
                 } \
               }
 
   #original_function_tab.tab-pane
     == render partial: 'plot',
-            locals: { \
+            locals: {\
               plot_title: 'Original Function Plot',
               plot_id: 'original_function',
-              values: { \
+              values: {\
                 x: @original_plot_points[:x],
                 y: @original_plot_points[:y] \
               } \
             }
-
-  #conversion_data.tab-pane
-    == render partial: 'interactive_conversion_data_table',
-            locals: { direct_conversion: @direct_conversion }
-  #full_data.tab-pane
-    == render partial: 'full_coversion_data_table',
-            locals: { direct_conversion: @direct_conversion}
+  - if @mode == 'discrete'
+    #conversion_data.tab-pane
+      == render partial: 'interactive_conversion_data_table',
+                locals: { direct_conversion: @conversion[:direct] }

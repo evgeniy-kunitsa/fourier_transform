@@ -27,9 +27,11 @@ module Fourier
           initialize_components,
           @fourier_params.intervals
       )
+      parsed_result = @transformation.parse_result(direct_components, reverse_components)
       {
         :direct => direct_components,
-        :reverse => reverse_components
+        :reverse => reverse_components,
+        :result => parsed_result
       }
     end
 

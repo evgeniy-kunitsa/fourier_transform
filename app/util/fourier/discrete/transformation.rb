@@ -16,6 +16,19 @@ module Fourier
         end
         components
       end
+
+      def parse_result(direct_conversion, reverse_conversion)
+        {
+          :direct => {
+            :indexes => (0..direct_conversion.size - 1).collect {|i| i},
+            :values => direct_conversion.collect { |unit| unit[1][:value][:abs] }
+          },
+          :reverse => {
+            :indexes => (0..reverse_conversion.size - 1).collect {|i| i},
+            :values => reverse_conversion.collect { |unit| unit[1][:value][:complex].real }
+          }
+        }
+      end
     end
   end
 end

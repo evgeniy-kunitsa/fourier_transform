@@ -8,6 +8,21 @@ module Fourier
         Helpers.hash_initialize(rate, variables, components, intervals)
       end
 
+      def parse_result(direct_conversion, reverse_conversion)
+        {
+          :direct => {
+            :indexes => (0..direct_conversion.size - 1).collect {|i| i},
+            :values => direct_conversion.collect { |unit| unit[1][:value][:complex].arg }
+          },
+          :reverse => {
+            :indexes => (0..reverse_conversion.size - 1).collect {|i| i},
+            :values => reverse_conversion.collect { |unit| unit[1][:value][:complex].real }
+          }
+        }
+      end
+
+      private
+
       def initial_transform(dir, variables, intervals)
         return variables if variables.size == 1
 

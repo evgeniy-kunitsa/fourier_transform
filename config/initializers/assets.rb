@@ -11,3 +11,4 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( discrete_fourier_transform.js )
 Rails.application.config.assets.precompile += %w( fast_fourier_transform.js )
+Rails.application.config.assets.precompile += %w( interactive_table.js )
