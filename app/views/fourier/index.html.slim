@@ -1,52 +1,59 @@
 = javascript_include_tag "#{@mode}_fourier_transform"
-h1
-  = "#{@mode.capitalize} Fourier Transform"
-ul.nav.nav-tabs
-  li.active
-    a.active data-toggle="tab" href="#direct_conversion_tab" Direct Conversion Result
-  li
-    a data-toggle="tab" href="#reverse_conversion_tab" Reverse Conversion Result
-  li
-    a data-toggle="tab" href="#original_function_tab" Original Function Plot
 
-  - if @mode == 'discrete'
-    li
-      a data-toggle="tab" href="#conversion_data" Conversion Data
+= render 'layouts/navbar'
 
-.tab-content
-  #direct_conversion_tab.tab-pane.active
-    == render partial: 'plot',
-              locals: {\
-                plot_title: 'Direct Conversion Result',
-                plot_id: 'direct_conversion',
-                values: {\
-                  x: @conversion[:result][:direct][:indexes],
-                  y: @conversion[:result][:direct][:values] \
-                } \
-              }
+#fourier-wrapper
+  .container
+    .row
+      .col-md-12
+          h1
+            = "#{@mode.capitalize} Fourier Transform"
+          ul.nav.nav-tabs
+            li.active
+              a.active data-toggle="tab" href="#direct_conversion_tab" Direct Conversion Result
+            li
+              a data-toggle="tab" href="#reverse_conversion_tab" Reverse Conversion Result
+            li
+              a data-toggle="tab" href="#original_function_tab" Original Function Plot
 
-  #reverse_conversion_tab.tab-pane
-    == render partial: 'plot',
-              locals: {\
-                plot_title: 'Reverse Conversion Result',
-                plot_id: 'reverse_conversion',
-                values: {\
-                  x: @conversion[:result][:reverse][:indexes],
-                  y: @conversion[:result][:reverse][:values] \
-                } \
-              }
+            - if @mode == 'discrete'
+              li
+                a data-toggle="tab" href="#conversion_data" Conversion Data
 
-  #original_function_tab.tab-pane
-    == render partial: 'plot',
-            locals: {\
-              plot_title: 'Original Function Plot',
-              plot_id: 'original_function',
-              values: {\
-                x: @original_plot_points[:x],
-                y: @original_plot_points[:y] \
-              } \
-            }
-  - if @mode == 'discrete'
-    #conversion_data.tab-pane
-      == render partial: 'interactive_conversion_data_table',
-                locals: { direct_conversion: @conversion[:direct] }
+          .tab-content
+            #direct_conversion_tab.tab-pane.active
+              == render partial: 'plot',
+                        locals: {\
+                          plot_title: 'Direct Conversion Result',
+                          plot_id: 'direct_conversion',
+                          values: {\
+                            x: @conversion[:result][:direct][:indexes],
+                            y: @conversion[:result][:direct][:values] \
+                          } \
+                        }
+
+            #reverse_conversion_tab.tab-pane
+              == render partial: 'plot',
+                        locals: {\
+                          plot_title: 'Reverse Conversion Result',
+                          plot_id: 'reverse_conversion',
+                          values: {\
+                            x: @conversion[:result][:reverse][:indexes],
+                            y: @conversion[:result][:reverse][:values] \
+                          } \
+                        }
+
+            #original_function_tab.tab-pane
+              == render partial: 'plot',
+                      locals: {\
+                        plot_title: 'Original Function Plot',
+                        plot_id: 'original_function',
+                        values: {\
+                          x: @original_plot_points[:x],
+                          y: @original_plot_points[:y] \
+                        } \
+                      }
+            - if @mode == 'discrete'
+              #conversion_data.tab-pane
+                == render partial: 'interactive_conversion_data_table',
+                          locals: { direct_conversion: @conversion[:direct] }
