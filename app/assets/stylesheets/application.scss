@@ -17,7 +17,17 @@
   @import 'bootstrap';
 
   .navbar {
-    background-color: #4a148c;
+    background-color: #0288D1;
+  }
+
+  .navbar-default {
+    .navbar-brand, .navbar-nav > li > a {
+      color: #fff;
+
+      &:hover {
+        color: #fff;
+      }
+    }
   }
 
   h1 {
