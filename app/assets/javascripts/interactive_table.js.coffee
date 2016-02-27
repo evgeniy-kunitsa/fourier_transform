@@ -10,7 +10,7 @@ hide_previous_table = () ->
 show_selected_table = (selected_table_toggle) ->
   table_id = $(selected_table_toggle).text().trim().substr(1)
   $("#data-table-#{table_id}").show()
-  $('#variable-selector').text("x#{table_id}")
+  $('#variable-selector').text("x#{table_id} ")
 
 setup_variable_selection = () ->
   for index_toggle_button in $('.conversion-table-toggle')

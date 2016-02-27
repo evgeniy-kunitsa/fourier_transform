@@ -1,52 +1,52 @@
-$background_overlay_color: rgba(0, 0, 0, 0.5);
-$background_dim_color: rgba(0, 0, 0, 0.5);
-$link_text_color: rgba(255, 255, 255, 0.7);
-$link_hover_text_color: rgba(255, 255, 255, 0.9);
+$background-overlay-color: rgba(0, 0, 0, 0.5);
+$background-dim-color: rgba(0, 0, 0, 0.5);
+$link-text-color: rgba(255, 255, 255, 0.7);
+$link-hover-text-color: rgba(255, 255, 255, 0.9);
 
-#home-wrapper {
+.home-wrapper {
   background-image: image-url("sound_wave.jpg");
   background-position: center;
   background-size: cover;
   font-size: 6em;
   line-height: 1em;
-  min-width: 100vw;
   min-height: 100vh;
+  min-width: 100vw;
   position: absolute;
   text-align: center;
 
   &::before {
-    background-color: $background_overlay_color;
+    background-color: $background-overlay-color;
     bottom: 0;
-    content: '';
+    content: "";
     left: 0;
     position: absolute;
-    top: 0;
     right: 0;
-  }
-
-  a {
-    color: $link_text_color;
-    display: table;
-    max-width: 50vw;
-    min-height: 100vh;
-    min-width: 50vw;
-    overflow-wrap: break-word;
-    position: absolute;
-    text-decoration: none;
-
-    &:hover {
-      background-color: $background_dim_color;
-      color: $link_hover_text_color;
-    }
-
-    p {
-      display: table-cell;
-      vertical-align: middle;
-    }
+    top: 0;
   }
 }
 
-#home-left {
+.home-wrapper > a {
+  color: $link-text-color;
+  display: table;
+  max-width: 50vw;
+  min-height: 100vh;
+  min-width: 50vw;
+  overflow-wrap: break-word;
+  position: absolute;
+  text-decoration: none !important;
+
+  &:hover {
+    background-color: $background-dim-color;
+    color: $link-hover-text-color;
+  }
+
+  p {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.home-left {
   left: 0;
   text-align: left;
 
@@ -55,7 +55,7 @@ $link_hover_text_color: rgba(255, 255, 255, 0.9);
   }
 }
 
-#home-right {
+.home-right {
   right: 0;
   text-align: right;
 
