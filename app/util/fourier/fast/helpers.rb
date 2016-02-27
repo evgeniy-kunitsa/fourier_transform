@@ -9,13 +9,14 @@ module Fourier
           components[index][:value][:complex] = rate * v
           components[index][:value][:abs] = (rate * v).abs
         end
-
         components
       end
 
-      def self.binary_reverse (number, intervals)
+      def self.binary_reverse(number, intervals)
         initial_bin = number.to_s(2)
-        (Math.log(intervals, 2) - initial_bin.length).to_i.times { initial_bin.prepend('0') }
+        (Math.log(intervals, 2) - initial_bin.length).to_i.times do
+          initial_bin.prepend('0')
+        end
         initial_bin.reverse!.to_i(2)
       end
     end

@@ -1,4 +1,4 @@
-= javascript_include_tag "#{@mode}_fourier_transform"
+= javascript_include_tag "fourier_transform"
 
 = render 'layouts/navbar'
 
@@ -26,9 +26,10 @@
                         locals: {\
                           plot_title: 'Direct Conversion Result',
                           plot_id: 'direct_conversion',
+                          chart_type: @mode == 'discrete' ? 'bar' : 'line',
                           values: {\
                             x: @conversion[:result][:direct][:indexes],
-                            y: @conversion[:result][:direct][:values] \
+                            y: @conversion[:result][:direct][:values], \
                           } \
                         }
 
@@ -37,6 +38,7 @@
                         locals: {\
                           plot_title: 'Reverse Conversion Result',
                           plot_id: 'reverse_conversion',
+                          chart_type: 'line',
                           values: {\
                             x: @conversion[:result][:reverse][:indexes],
                             y: @conversion[:result][:reverse][:values] \
@@ -48,6 +50,7 @@
                       locals: {\
                         plot_title: 'Original Function Plot',
                         plot_id: 'original_function',
+                        chart_type: 'line',
                         values: {\
                           x: @original_plot_points[:x],
                           y: @original_plot_points[:y] \
