@@ -4,12 +4,13 @@
  *= require_self
 */
 
-@import 'bootstrap';
+@import "bootstrap";
 
 body {
   padding-bottom: 40px;
 }
 
-h1, h2 {
+h1,
+h2 {
   text-align: center;
 }

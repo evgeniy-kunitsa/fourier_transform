@@ -1,14 +1,15 @@
-$navbar_background_color: #0288D1;
+$navbar-background-color: #0288d1;
+$navbar-link-color: #fff;
 
-.navbar {
-  background-color: $navbar_background_color !important;
+.navbar-fourier {
+  background-color: $navbar-background-color !important;
 }
 
-
-.navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a {
-  color: #fff !important;;
+.navbar-brand,
+.navbar-link a {
+  color: $navbar-link-color !important;
 
   &:hover {
-    color: #fff !important;;
+    color: $navbar-link-color !important;
   }
 }
