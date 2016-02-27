@@ -30,7 +30,9 @@ module Fourier
       def initial_transform(dir, variables, intervals)
         return variables if variables.size == 1
 
-        wn = Complex(cos(2 * PI / intervals), dir * sin(2 * PI / intervals))
+        real = cos(2 * PI / intervals)
+        imaginary = dir * sin(2 * PI / intervals)
+        wn = Complex(real, imaginary)
         w = Complex(1.0, 0.0)
         b = []
         c = []

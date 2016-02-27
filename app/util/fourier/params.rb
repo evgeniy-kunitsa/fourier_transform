@@ -2,11 +2,12 @@ module Fourier
   class Params
     include Math
 
-    attr_accessor :function_period, :intervals, :function
+    attr_accessor :function_period, :intervals, :function_interval, :function
 
     def initialize(function_period, intervals, &function)
       @function_period = function_period
       @intervals = intervals
+      @function_interval = function_period / intervals
       @function = function
     end
 

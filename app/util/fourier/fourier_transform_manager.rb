@@ -14,11 +14,11 @@ module Fourier
 
     def perform_transformation
       direct_components = @transformation.transform(
-          1.0 / @fourier_params.intervals,
-          DIRECT,
-          initialize_direct_variables,
-          initialize_components,
-          @fourier_params.intervals
+            1.0 / @fourier_params.intervals,
+            DIRECT,
+            initialize_direct_variables,
+            initialize_components,
+            @fourier_params.intervals
       )
       reverse_components = @transformation.transform(
           1,
@@ -27,18 +27,19 @@ module Fourier
           initialize_components,
           @fourier_params.intervals
       )
-      parsed_result = @transformation.parse_result(direct_components, reverse_components)
+      parsed_result =
+          @transformation.parse_result(direct_components, reverse_components)
       {
-        :direct => direct_components,
-        :reverse => reverse_components,
-        :result => parsed_result
+        direct: direct_components,
+        reverse: reverse_components,
+        result: parsed_result
       }
     end
 
     def original_function_plot_points
       plot_points = { x: [], y: [] }
       (0...@fourier_params.intervals).each do |i|
-        argument = (@fourier_params.function_period / @fourier_params.intervals) * i
+        argument = @fourier_params.function_interval * i
         plot_points[:x].push argument.round(2)
         plot_points[:y].push @fourier_params.run_function(argument)
       end
@@ -62,7 +63,7 @@ module Fourier
     def initialize_direct_variables
       direct_variables = []
       (0...@fourier_params.intervals).each do |i|
-        argument = (@fourier_params.function_period / @fourier_params.intervals) * i
+        argument = @fourier_params.function_interval * i
         direct_variables.push Complex(@fourier_params.run_function(argument), 0)
       end
       direct_variables
