@@ -2,14 +2,14 @@
  *= require normalize-rails
  *= require_tree .
  *= require_self
- */
+*/
 
-  @import 'bootstrap';
+@import 'bootstrap';
 
-  body {
-    padding-bottom: 40px;
-  }
+body {
+  padding-bottom: 40px;
+}
 
-  h1, h2 {
-    text-align: center;
-  }
+h1, h2 {
+  text-align: center;
+}
