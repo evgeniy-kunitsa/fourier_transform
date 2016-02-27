@@ -34,7 +34,7 @@ module Fourier
         (0...intervals / 2).each do |j|
           b.push(variables[j] + variables[j + intervals / 2])
           c.push((variables[j] - variables[j + intervals / 2]) * w)
-          w = w * wn
+          w *= wn
         end
 
         b = initial_transform(dir, b, intervals / 2)

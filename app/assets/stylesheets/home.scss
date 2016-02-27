@@ -1,41 +1,42 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$background_overlay_color: rgba(0, 0, 0, 0.5);
+$background_dim_color: rgba(0, 0, 0, 0.5);
+$link_text_color: rgba(255, 255, 255, 0.7);
+$link_hover_text_color: rgba(255, 255, 255, 0.9);
 
 #home-wrapper {
+  background-image: image-url("sound_wave.jpg");
+  background-position: center;
+  background-size: cover;
+  font-size: 6em;
+  line-height: 1em;
   min-width: 100vw;
   min-height: 100vh;
   position: absolute;
-  background-image: image-url('sound_wave.jpg');
-  background-size: cover;
-  background-position: center;
-  font-size: 6em;
-  line-height: 1em;
   text-align: center;
 
-  &:before {
+  &::before {
+    background-color: $background_overlay_color;
+    bottom: 0;
     content: '';
+    left: 0;
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
   }
 
   a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    overflow-wrap: break-word;
-    min-width: 50vw;
+    color: $link_text_color;
+    display: table;
     max-width: 50vw;
     min-height: 100vh;
+    min-width: 50vw;
+    overflow-wrap: break-word;
     position: absolute;
-    display: table;
+    text-decoration: none;
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.5);
-      color: rgba(255, 255, 255, 0.9);
+      background-color: $background_dim_color;
+      color: $link_hover_text_color;
     }
 
     p {
@@ -43,22 +44,22 @@
       vertical-align: middle;
     }
   }
+}
 
-  #home-left {
-    left: 0;
-    text-align: left;
+#home-left {
+  left: 0;
+  text-align: left;
 
-    p {
-      padding-left: 30px;
-    }
+  p {
+    padding-left: 30px;
   }
+}
 
-  #home-right {
-    right: 0;
-    text-align: right;
+#home-right {
+  right: 0;
+  text-align: right;
 
-    p {
-      padding-right: 30px;
-    }
+  p {
+    padding-right: 30px;
   }
 }

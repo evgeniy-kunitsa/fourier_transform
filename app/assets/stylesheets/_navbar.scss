@@ -1,0 +1,14 @@
+$navbar_background_color: #0288D1;
+
+.navbar {
+  background-color: $navbar_background_color !important;
+}
+
+
+.navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a {
+  color: #fff !important;;
+
+  &:hover {
+    color: #fff !important;;
+  }
+}

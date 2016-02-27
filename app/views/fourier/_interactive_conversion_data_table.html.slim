@@ -1,28 +1,29 @@
 = javascript_include_tag 'interactive_table'
 
 h2 Detailed Conversion Data
-.h3.data-table-header
-  | Details for variable
-  .btn-group
-    button#data-table-switch.btn.btn-default.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
-      span#variable-selector
-        | Select variable
-      span.caret
-    ul.dropdown-menu.scrollable-menu
-      - direct_conversion.size.times do |index|
-        li
-          a.conversion-table-toggle href="#"
-            == "x#{index}"
-- direct_conversion.each_with_index do |conversion_unit, unit_index|
-  .data-table-holder id="data-table-#{unit_index}"
-    .row
-      - conversion_unit[1][:components].each_slice(8).to_a.each_with_index do |data, multiplier|
-        .col-md-3
-          table.table
-            - data.each_with_index do |component, index|
-              tr
-                th
-                  = index + multiplier * 8
-                td
-                  = "#{component.real.round(2)} + (#{component.imag.round(2)}i)"
-      h4.values-sum-header Sum (absolute): #{conversion_unit[1][:value][:abs]}
+.interactive-table
+  .h3.data-table-header
+    | Details for variable
+    .btn-group
+      button#data-table-switch.btn.btn-default.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
+        span#variable-selector
+          | Select variable
+        span.caret
+      ul.dropdown-menu.scrollable-menu
+        - direct_conversion.size.times do |index|
+          li
+            a.conversion-table-toggle href="#"
+              == "x#{index}"
+  - direct_conversion.each_with_index do |conversion_unit, unit_index|
+    .data-table-holder id="data-table-#{unit_index}"
+      .row
+        - conversion_unit[1][:components].each_slice(8).to_a.each_with_index do |data, multiplier|
+          .col-md-3
+            table.table
+              - data.each_with_index do |component, index|
+                tr
+                  th
+                    = index + multiplier * 8
+                  td
+                    = "#{component.real.round(2)} + (#{component.imag.round(2)}i)"
+        h4.values-sum-header Sum (absolute): #{conversion_unit[1][:value][:abs]}
