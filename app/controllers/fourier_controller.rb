@@ -2,8 +2,7 @@ class FourierController < ApplicationController
   include Math
 
   def index
-    fourier_params = Fourier::Params.new(2 * PI / 3, 32.0) { |x| sin(3 * x) + cos(3 * x) }
-    manager = Fourier::FourierTransformManager.new(fourier_params)
+    manager = Fourier::FourierTransformManager.new(Fourier::Params.new)
     @original_plot_points = manager.original_function_plot_points
     @mode = params[:mode]
     set_transform_mode(manager)

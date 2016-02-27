@@ -33,7 +33,7 @@ generate_line = (canvas, chart_data) ->
   new Chart($(canvas).get(0).getContext("2d"))
     .Line(chart_data, { scaleBeginAtZero: false, responsive: true,  animation : false })
 
-build_charts = () ->
+build_charts = ->
   plots = $('.plot')
   for plot in plots
     build_chart($(plot))
