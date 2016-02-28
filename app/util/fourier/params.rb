@@ -6,11 +6,11 @@ module Fourier
 
     def initialize(function_period = Defaults.period,
                    intervals = Defaults.intervals,
-                   function = Defaults.function)
+                   function_params = Defaults.params)
       @function_period = function_period
       @intervals = intervals
       @function_interval = function_period / intervals
-      @function = function
+      @function = FunctionGenerator.create(function_params)
     end
 
     def run_function(argument)

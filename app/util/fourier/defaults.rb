@@ -2,8 +2,12 @@ module Fourier
   class Defaults
     include Math
 
-    def self.function
-      lambda { |x| Math.sin(3 * x) + Math.cos(3 * x) }
+    def self.params
+      {
+        sin_multiplier: 3,
+        cos_multiplier: 3,
+        sign_literal: '+'
+      }
     end
 
     def self.period

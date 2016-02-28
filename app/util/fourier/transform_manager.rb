@@ -1,5 +1,5 @@
 module Fourier
-  class FourierTransformManager
+  class TransformManager
     include Math
 
     attr_writer :params, :transformation
@@ -7,10 +7,22 @@ module Fourier
     DIRECT = -1
     REVERSE = 1
 
-    def initialize(fourier_params)
+    def initialize(fourier_params, mode_param = nil)
       @fourier_params = fourier_params
-      @transformation = nil
+      self.mode = mode_param
     end
+
+    def mode=(mode)
+      case mode
+        when "discrete"
+          @transformation = Discrete::Transformation.new
+        when "fast"
+          @transformation = Fast::Transformation.new
+        else
+          @transformation = nil
+      end
+    end
+
 
     def perform_transformation
       direct_components = @transformation.transform(
