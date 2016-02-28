@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root 'home#index'
-  get '/dft', to: 'home#discrete_fourier_transform'
-  get '/fft', to: 'home#fast_fourier_transform'
+  root "home#index"
+  get "/fourier/:mode", to: "fourier#show"
 end

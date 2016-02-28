@@ -1,0 +1,15 @@
+$navbar-background-color: #0288d1;
+$navbar-link-color: #fff;
+
+.navbar-fourier {
+  background-color: $navbar-background-color !important;
+}
+
+.navbar-brand,
+.navbar-link a {
+  color: $navbar-link-color !important;
+
+  &:hover {
+    color: $navbar-link-color !important;
+  }
+}

@@ -1,3 +1,65 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$background-overlay-color: rgba(0, 0, 0, 0.5);
+$background-dim-color: rgba(0, 0, 0, 0.5);
+$link-text-color: rgba(255, 255, 255, 0.7);
+$link-hover-text-color: rgba(255, 255, 255, 0.9);
+
+.home-wrapper {
+  background-image: image-url("sound_wave.jpg");
+  background-position: center;
+  background-size: cover;
+  font-size: 6em;
+  line-height: 1em;
+  min-height: 100vh;
+  min-width: 100vw;
+  position: absolute;
+  text-align: center;
+
+  &::before {
+    background-color: $background-overlay-color;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.home-link {
+  color: $link-text-color;
+  display: table;
+  max-width: 50vw;
+  min-height: 100vh;
+  min-width: 50vw;
+  overflow-wrap: break-word;
+  position: absolute;
+  text-decoration: none !important;
+
+  &:hover {
+    background-color: $background-dim-color;
+    color: $link-hover-text-color;
+  }
+
+  p {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.home-left {
+  left: 0;
+  text-align: left;
+
+  p {
+    padding-left: 30px;
+  }
+}
+
+.home-right {
+  right: 0;
+  text-align: right;
+
+  p {
+    padding-right: 30px;
+  }
+}

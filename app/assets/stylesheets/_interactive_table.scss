@@ -1,0 +1,16 @@
+.interactive-table {
+  .data-table-header {
+    text-align: left;
+  }
+
+  .scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+  }
+
+  .values-sum-header {
+    padding-left: 15px;
+    text-align: left;
+  }
+}
