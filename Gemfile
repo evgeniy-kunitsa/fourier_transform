@@ -12,6 +12,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'slim-rails', '~> 3.0', '>= 3.0.1'
 gem 'normalize-rails'
 gem 'chart-js-rails'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug'
