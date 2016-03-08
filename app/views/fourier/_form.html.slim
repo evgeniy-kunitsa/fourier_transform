@@ -1,0 +1,23 @@
+= javascript_include_tag "function_property_form"
+
+.container
+  .row
+    .col-md-12#function-input
+      = simple_form_for @function_property, url: "/fourier",
+              html: {class: "form-inline", id: "function-form"},
+              remote: true do |f|
+        = "f(x) = sin("
+        = f.input :sin_multiplier, class: "form-control", label: false,
+                  input_html: {value: "3"}
+        = "x)"
+        = f.input :sign, class: "form-control", label: false,
+                  collection: [["+", 1], ["-", -1]], selected: "+"
+        = "cos("
+        = f.input :cos_multiplier, class: "form-control", label: false,
+                  input_html: {value: "3"}
+        = "x)"
+        = f.input :intervals, class: "form-control", label: "N = ",
+                  collection: (1..8).each.map { |rate| 2 ** rate },
+                  selected: "32"
+        = f.button :submit, "Submit", class: "function-submit"
+

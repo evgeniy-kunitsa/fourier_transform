@@ -13,6 +13,7 @@ gem 'slim-rails', '~> 3.0', '>= 3.0.1'
 gem 'normalize-rails'
 gem 'chart-js-rails'
 gem 'simple_form'
+gem 'annotate'
 
 group :development, :test do
   gem 'byebug'

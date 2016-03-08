@@ -1,0 +1,27 @@
+= javascript_include_tag "fourier_transform"
+= javascript_include_tag "interactive_table"
+
+= render "layouts/navbar"
+
+.fourier-wrapper
+
+  = render "form"
+
+  .container#fourier-results
+    .row
+      .col-md-12
+        ul.nav.nav-tabs
+          li
+            a data-toggle="tab" href="#discrete_fourier_transform"
+              | Discrete Fourier Transform
+          li
+            a data-toggle="tab" href="#fast_fourier_transform"
+             | Fast Fourier Transform
+          li
+            a data-toggle="tab" class="chart-trigger" href="#original_function"
+             | Original Function
+        .tab-content
+          .tab-pane#discrete_fourier_transform
+          .tab-pane#fast_fourier_transform
+          .tab-pane#original_function
+

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  root "home#index"
-  get "/fourier/:mode", to: "fourier#show"
+  root to: redirect("/fourier")
+  get "/fourier" => "fourier#index"
+  post "/fourier" => "fourier#show"
 end

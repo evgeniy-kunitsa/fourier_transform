@@ -1,0 +1,44 @@
+ul.nav.nav-tabs
+  li
+    a data-toggle="tab" class="chart-trigger" href="##{mode}_direct_conversion_tab"
+      - if mode == "discrete"
+        | Direct Conversion Result
+      - else
+        | Direct Conversion Result (decimation in frequency)
+  li
+    a data-toggle="tab" class="chart-trigger" href="##{mode}_reverse_conversion_tab"
+      | Reverse Conversion Result
+
+  - if mode == "discrete"
+    li
+      a data-toggle="tab" href="#conversion_data" Conversion Data
+
+.tab-content
+  .tab-pane id="#{mode}_direct_conversion_tab"
+    == render partial: "plot",
+              locals: { \
+                plot_title: "Direct Conversion Result",
+                plot_id: "#{mode}_direct_conversion",
+                chart_type: mode == "discrete" ? "bar" : "line",
+                values: { \
+                  x: conversion[:result][:direct][:indices],
+                  y: conversion[:result][:direct][:values], \
+                } \
+              }
+
+  .tab-pane id="#{mode}_reverse_conversion_tab"
+    == render partial: "plot",
+              locals: { \
+                plot_title: "Reverse Conversion Result",
+                plot_id: "#{mode}_reverse_conversion",
+                chart_type: "line",
+                values: { \
+                  x: conversion[:result][:reverse][:indices],
+                  y: conversion[:result][:reverse][:values] \
+                } \
+              }
+
+  - if mode == "discrete"
+    #conversion_data.tab-pane
+      == render partial: "interactive_conversion_data_table",
+                locals: { direct_conversion: conversion[:direct] }
