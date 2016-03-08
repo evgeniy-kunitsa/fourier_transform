@@ -14,6 +14,7 @@ gem 'normalize-rails'
 gem 'chart-js-rails'
 gem 'simple_form'
 gem 'annotate'
+gem 'bootswatch-rails'
 
 group :development, :test do
   gem 'byebug'

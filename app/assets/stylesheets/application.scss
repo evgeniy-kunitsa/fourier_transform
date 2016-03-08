@@ -4,7 +4,10 @@
  *= require_self
 */
 
+@import "bootstrap-sprockets";
+@import "bootswatch/cyborg/variables";
 @import "bootstrap";
+@import "bootswatch/cyborg/bootswatch";
 
 body {
   padding-bottom: 40px;

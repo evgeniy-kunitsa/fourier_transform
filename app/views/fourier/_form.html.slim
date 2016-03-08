@@ -3,8 +3,10 @@
 .container
   .row
     .col-md-12#function-input
+      .well
+        | Argument multipliers, sign and N can be customized on click.
       = simple_form_for @function_property, url: "/fourier",
-              html: {class: "form-inline", id: "function-form"},
+              html: { class: "form-inline", id: "function-form" },
               remote: true do |f|
         = "f(x) = sin("
         = f.input :sin_multiplier, class: "form-control", label: false,

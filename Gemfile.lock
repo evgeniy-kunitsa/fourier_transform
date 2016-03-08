@@ -49,6 +49,8 @@ GEM
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootswatch-rails (3.3.5)
+      railties (>= 3.1)
     builder (3.2.2)
     byebug (8.2.1)
     chart-js-rails (0.0.9)
@@ -177,6 +179,7 @@ DEPENDENCIES
   annotate
   awesome_print
   bootstrap-sass (~> 3.3, >= 3.3.6)
+  bootswatch-rails
   byebug
   chart-js-rails
   coffee-rails (~> 4.1.0)
