@@ -7,8 +7,8 @@ $link-hover-text-color: rgba(255, 255, 255, 0.9);
   background-image: image-url("sound_wave.jpg");
   background-position: center;
   background-size: cover;
-  font-size: 6em;
-  line-height: 1em;
+  font-size: 12vh;
+  line-height: 12vh;
   min-height: 100vh;
   min-width: 100vw;
   position: absolute;
@@ -29,7 +29,7 @@ $link-hover-text-color: rgba(255, 255, 255, 0.9);
   color: $link-text-color;
   display: table;
   max-width: 50vw;
-  min-height: 100vh;
+  min-height: 50vh;
   min-width: 50vw;
   overflow-wrap: break-word;
   position: absolute;
@@ -44,6 +44,14 @@ $link-hover-text-color: rgba(255, 255, 255, 0.9);
     display: table-cell;
     vertical-align: middle;
   }
+}
+
+.home-top {
+  top: 0;
+}
+
+.home-bottom {
+  bottom: 0;
 }
 
 .home-left {
