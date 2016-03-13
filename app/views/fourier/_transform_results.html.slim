@@ -13,8 +13,8 @@ ul.nav.nav-tabs
     li
       a data-toggle="tab" href="#conversion_data" Conversion Data
 
-.tab-content
-  .tab-pane id="#{mode}_direct_conversion_tab"
+.tab-content#transform-results-content
+  .tab-pane.fade id="#{mode}_direct_conversion_tab"
     == render partial: "plot",
               locals: { \
                 plot_title: "Direct Conversion Result",
@@ -26,7 +26,7 @@ ul.nav.nav-tabs
                 } \
               }
 
-  .tab-pane id="#{mode}_reverse_conversion_tab"
+  .tab-pane.fade id="#{mode}_reverse_conversion_tab"
     == render partial: "plot",
               locals: { \
                 plot_title: "Reverse Conversion Result",
@@ -39,6 +39,6 @@ ul.nav.nav-tabs
               }
 
   - if mode == "discrete"
-    #conversion_data.tab-pane
+    #conversion_data.tab-pane.fade
       == render partial: "interactive_conversion_data_table",
                 locals: { direct_conversion: conversion[:direct] }

@@ -1,3 +1,8 @@
+resolve_height = ->
+  tab_pane = $("#transform-results-content").closest(".tab-pane")
+  nav_tabs = $(tab_pane).find(".nav-tabs")
+  $("#transform-results-content").height(tab_pane.height() - nav_tabs.height())
+
 build_chart = (chart) ->
   canvas = $(chart).find(".chart_canvas").first()
   data = $(chart).find(".chart_data:first").first()
@@ -16,9 +21,13 @@ build_chart = (chart) ->
     ]
   }
 
-  options = { scaleBeginAtZero: false,  responsive: true, animation : false }
-
-  $(canvas).css("width", 900).css("height", 500)
+  options = {
+    scaleBeginAtZero: false,
+    maintainAspectRatio: false,
+    responsive: true,
+    animation : false
+  }
+  $(canvas).css("width", 900)
 
   generate_chart($(canvas), type_literal, chart_data, options)
 
@@ -48,8 +57,9 @@ refresh_active_charts = () ->
         draw_chart_by_trigger($(trigger))
 
 $ ->
-  $("#fourier-results").hide()
+  $("#fourier-results").height($("#fourier-wrapper").height() - $("#fourier-function").height())
   $("#function-form").on "ajax:success", (event) ->
+    resolve_height()
     $("#fourier-results").show()
     refresh_active_charts()
     $(".chart-trigger").on "shown.bs.tab", (event) ->

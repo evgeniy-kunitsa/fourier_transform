@@ -1,43 +1,35 @@
-.fourier-wrapper {
+#fourier-wrapper {
   padding-top: 70px;
+  height: 100vh;
 
-  #function-input {
+  h1,
+  h2 {
     text-align: center;
+  }
 
-    .form-inline .form-group input, select {
-      padding: 0;
-      width: 20px;
-      border: none;
-      text-align: center;
-      background: none;
-      outline: none;
-      box-shadow:none !important;
-    }
+  #fourier-results {
+    height: 100%;
 
-    .function_property_intervals {
-      margin-left: 20px;
+    .col {
+      height: 100%;
 
-      select {
-        width: 40px;
-        text-align-last: left;
+      .tab-content {
+        height: 100%;
+
+        .tab-pane {
+          height: 100%;
+        }
       }
     }
+  }
 
-    input[type=number]::-webkit-inner-spin-button,
-    input[type=number]::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
+  #function-container {
+    text-align: center;
+    font-size: 2em;
+  }
 
-    select {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      text-overflow: "";
-      text-align-last: center;
-    }
-
-    .function-submit {
-      margin-left: 10px;
-    }
+  .plot {
+    padding-top:20px;
+    height: 90%;
   }
 }

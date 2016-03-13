@@ -1,17 +1,14 @@
-autosize_input = (input) ->
-  text_length = $(input).val().length
-  $(input).css("width", "#{text_length * 10}")
+update_function = ->
+  sin_multiplier = $('#function_property_sin_multiplier').val()
+  cos_multiplier = $('#function_property_cos_multiplier').val()
+  sign = $('#function_property_sign option:selected').text()
+  intervals = $('#function_property_intervals option:selected').val()
 
-ensure_not_empty = (input) ->
-  text_length = $(input).val().length
-  if text_length == 0
-    text_length = 1
-    $(input).val("1")
-    autosize_input($(input))
+  $('#function-container').text(
+    "f(x) = sin(#{sin_multiplier}x) #{sign} cos(#{cos_multiplier}x), N=#{intervals}"
+  )
 
 $ ->
-  autosize_input(input) for input in $("input[type=number]")
-  $("input[type=number]").on "keyup", (event) ->
-    autosize_input($(this))
-  $("input[type=number]").on "change", (event) ->
-    ensure_not_empty($(this))
+  $("#function-form").on "ajax:success", (event) ->
+    update_function()
+    $("#function_input_modal").modal('hide')
