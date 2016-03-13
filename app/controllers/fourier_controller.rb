@@ -2,18 +2,18 @@ class FourierController < ApplicationController
   include Math
 
   def index
-    @function_property = FunctionProperty.new
+    @fourier_function = FourierFunction.new
   end
 
   def show
-    @function_property = FunctionProperty.new(function_property_params)
+    @fourier_function = FourierFunction.new(function_property_params)
     fourier_params = Fourier::Params.new(
       {
-          sin_multiplier: @function_property.sin_multiplier,
-          cos_multiplier: @function_property.cos_multiplier,
-          sign: @function_property.sign
+        sin_multiplier: @fourier_function.sin_multiplier,
+        cos_multiplier: @fourier_function.cos_multiplier,
+        sign: @fourier_function.sign
       },
-      @function_property.intervals
+      @fourier_function.intervals
     )
 
     manager = Fourier::TransformManager.new(fourier_params)
@@ -29,7 +29,7 @@ class FourierController < ApplicationController
 
   def function_property_params
     params
-      .require(:function_property)
+      .require(:fourier_function)
         .permit(:sin_multiplier,
                 :cos_multiplier,
                 :sign,

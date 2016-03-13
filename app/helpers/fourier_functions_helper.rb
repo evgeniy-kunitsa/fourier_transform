@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: function_properties
+# Table name: fourier_functions
 #
 #  id             :integer          not null, primary key
 #  sin_multiplier :integer
@@ -11,5 +11,5 @@
 #  updated_at     :datetime         not null
 #
 
-class FunctionProperty < ActiveRecord::Base
+module FourierFunctionsHelper
 end
