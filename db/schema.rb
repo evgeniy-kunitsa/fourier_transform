@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302211732) do
+ActiveRecord::Schema.define(version: 20160313124553) do
 
-  create_table "function_properties", force: :cascade do |t|
+  create_table "fourier_functions", force: :cascade do |t|
     t.integer  "sin_multiplier"
     t.integer  "cos_multiplier"
     t.integer  "sign"

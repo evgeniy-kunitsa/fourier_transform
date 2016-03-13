@@ -1,9 +1,11 @@
-h2 Detailed Conversion Data
 .interactive-table
   .h3.data-table-header
     | Details for variable
     .btn-group
-      button#data-table-switch.btn.btn-default.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
+      button#data-table-switch.btn.btn-default.dropdown-toggle[
+        aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
+        type="button"
+      ]
         span#variable-selector
           = "Select variable "
         span.caret
@@ -24,4 +26,5 @@ h2 Detailed Conversion Data
                     = index + multiplier * 8
                   td
                     = "#{component.real.round(2)} + (#{component.imag.round(2)}i)"
+      .row
         h4.values-sum-header Sum (absolute): #{conversion_unit[1][:value][:abs]}

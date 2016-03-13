@@ -1,8 +1,3 @@
-resolve_height = ->
-  tab_pane = $("#transform-results-content").closest(".tab-pane")
-  nav_tabs = $(tab_pane).find(".nav-tabs")
-  $("#transform-results-content").height(tab_pane.height() - nav_tabs.height())
-
 build_chart = (chart) ->
   canvas = $(chart).find(".chart_canvas").first()
   data = $(chart).find(".chart_data:first").first()
@@ -23,11 +18,10 @@ build_chart = (chart) ->
 
   options = {
     scaleBeginAtZero: false,
-    maintainAspectRatio: false,
     responsive: true,
     animation : false
   }
-  $(canvas).css("width", 900)
+  $(canvas).css("width", 900).css("height", 500)
 
   generate_chart($(canvas), type_literal, chart_data, options)
 
@@ -49,7 +43,7 @@ draw_chart_by_trigger = (trigger) ->
   build_chart($("#{chart_id}").find(".plot").first())
 
 refresh_active_charts = () ->
-  nav_tabs = $("ul.nav.nav-tabs")
+  nav_tabs = $("ul.nav.nav-pills")
   if $(nav_tabs).length > 0
     for tab in $(nav_tabs)
       trigger = $(tab).first().find(".chart-trigger")
@@ -57,9 +51,8 @@ refresh_active_charts = () ->
         draw_chart_by_trigger($(trigger))
 
 $ ->
-  $("#fourier-results").height($("#fourier-wrapper").height() - $("#fourier-function").height())
+  $("#fourier-results").hide()
   $("#function-form").on "ajax:success", (event) ->
-    resolve_height()
     $("#fourier-results").show()
     refresh_active_charts()
     $(".chart-trigger").on "shown.bs.tab", (event) ->
