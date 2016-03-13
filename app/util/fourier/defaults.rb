@@ -6,7 +6,7 @@ module Fourier
       {
         sin_multiplier: 3,
         cos_multiplier: 3,
-        sign_literal: '+'
+        sign: 1
       }
     end
 

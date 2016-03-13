@@ -29,7 +29,7 @@ $link-hover-text-color: rgba(255, 255, 255, 0.9);
   color: $link-text-color;
   display: table;
   max-width: 50vw;
-  min-height: 100vh;
+  min-height: 50vh;
   min-width: 50vw;
   overflow-wrap: break-word;
   position: absolute;
@@ -44,6 +44,14 @@ $link-hover-text-color: rgba(255, 255, 255, 0.9);
     display: table-cell;
     vertical-align: middle;
   }
+}
+
+.home-top {
+  top: 0;
+}
+
+.home-bottom {
+  bottom: 0;
 }
 
 .home-left {
