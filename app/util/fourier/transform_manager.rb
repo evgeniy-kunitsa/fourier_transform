@@ -23,7 +23,6 @@ module Fourier
       end
     end
 
-
     def perform_transformation
       direct_components = @transformation.transform(
             1.0 / @fourier_params.intervals,
@@ -46,6 +45,15 @@ module Fourier
         reverse: reverse_components,
         result: parsed_result
       }
+    end
+
+    def full_transformation
+      result = {}
+      self.mode = "discrete"
+      result[:discrete] = perform_transformation
+      self.mode = "fast"
+      result[:fast] = perform_transformation
+      result
     end
 
     def original_function_plot_points

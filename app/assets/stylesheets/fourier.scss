@@ -1,3 +1,35 @@
-.fourier-wrapper {
+#fourier-wrapper {
   padding-top: 70px;
+  height: 100vh;
+
+  h1,
+  h2 {
+    text-align: center;
+  }
+
+  #fourier-results {
+    height: 100%;
+
+    .col {
+      height: 100%;
+
+      .tab-content {
+        height: 100%;
+
+        .tab-pane {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  #function-container {
+    text-align: center;
+    font-size: 2em;
+  }
+
+  .plot {
+    padding-top:20px;
+    height: 90%;
+  }
 }

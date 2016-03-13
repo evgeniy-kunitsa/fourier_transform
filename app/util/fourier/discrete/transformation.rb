@@ -21,13 +21,13 @@ module Fourier
       def parse_result(direct_conversion, reverse_conversion)
         {
           direct: {
-            indexes: (0..direct_conversion.size - 1).map { |i| i },
+            indices: (0..direct_conversion.size - 1).map { |i| i },
             values: direct_conversion.map do |unit|
               unit[1][:value][:abs]
             end
           },
           reverse: {
-            indexes: (0..reverse_conversion.size - 1).map { |i| i },
+            indices: (0..reverse_conversion.size - 1).map { |i| i },
             values: reverse_conversion.map do |unit|
               unit[1][:value][:complex].real
             end

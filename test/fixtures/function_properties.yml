@@ -1,0 +1,28 @@
+# == Schema Information
+#
+# Table name: function_properties
+#
+#  id             :integer          not null, primary key
+#  sin_multiplier :integer
+#  cos_multiplier :integer
+#  sign           :integer
+#  intervals      :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sin_multiplier: 1
+  cos_multiplier: 1
+  sign: 1
+  intervals: 1
+  period: 1.5
+
+two:
+  sin_multiplier: 1
+  cos_multiplier: 1
+  sign: 1
+  intervals: 1
+  period: 1.5

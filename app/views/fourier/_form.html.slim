@@ -1,0 +1,35 @@
+= javascript_include_tag "function_property_form"
+
+#function-input
+  .well#function-container[
+    role="button" data-toggle="modal" data-target="#function_input_modal"
+  ] Click to create a function
+
+  .modal#function_input_modal[
+    role="dialog" aria-labelledby="function_input_title"
+  ]
+    .modal-dialog role="document"
+      .modal-content
+        .modal-header
+          .button.close[
+            type="button" data-dismiss="modal" aria-hidden="true"
+          ] &times;
+          h4.modal-title#function_input_title Edit Function
+
+        = simple_form_for @function_property,
+          url: "/fourier",
+          html: {class: "form-group", id: "function-form"},
+          remote: true do |f|
+          .modal-body
+            = f.input :sin_multiplier, class: "form-control"
+            = f.input :sign, class: "form-control",
+                      collection: [["+", 1], ["-", -1]],
+                      include_blank: false
+            = f.input :cos_multiplier, class: "form-control"
+            = f.input :intervals, class: "form-control", label: "N",
+                      collection: (1..8).each.map { |rate| 2 ** rate },
+                      include_blank: false
+          .modal-footer
+            .button [type="button" class="btn btn-default"
+              data-dismiss="modal"] Close
+            = f.button :submit, "Submit", class: "btn btn-primary"
