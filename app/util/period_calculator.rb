@@ -12,7 +12,7 @@ module PeriodCalculator
     #   PI
     # end
 
-    2 * PI / 3
+    2 * PI
   end
 
 end

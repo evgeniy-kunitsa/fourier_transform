@@ -4,7 +4,6 @@ module FourierTransform
 
     def self.transform(direction, rate, values, intervals = values.size)
       primary_result = inner_loop(direction, Complicator.run(values), intervals)
-
       result = []
       primary_result.each_with_index do |value, index|
         index = BinaryReverse.reverse(index, intervals)

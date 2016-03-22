@@ -1,0 +1,21 @@
+= javascript_include_tag "fourier_transform"
+
+= render "layouts/navbar"
+
+.container#fourier-wrapper
+  .row#fourier-function
+    .col-md-12
+      = render "function_form"
+  .row#fourier-results
+    .col.col-md-3
+      ul.nav.nav-pills.nav-stacked
+        li
+          a data-toggle="tab" href="#convolution"
+            | Convolution
+        li
+          a data-toggle="tab" href="#correlation"
+            | Correlation
+    .col.col-md-9
+      .tab-content
+        .tab-pane.fade#convolution
+        .tab-pane.fade#correlation
