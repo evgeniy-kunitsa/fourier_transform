@@ -3,6 +3,7 @@ $("#discrete_fourier_transform")
     render  partial: "transform_results",
             locals: {
               mode: "discrete",
+              intervals: @intervals,
               conversion: @conversion[:discrete]
             }
   )%>");
@@ -12,10 +13,10 @@ $("#fast_fourier_transform")
     render  partial: "transform_results",
             locals: {
               mode: "fast",
+              intervals: @intervals,
               conversion: @conversion[:fast]
             }
   )%>");
-
 $("#original_function")
   .html("<%= escape_javascript(
     render  partial: "plot",

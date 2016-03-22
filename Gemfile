@@ -15,6 +15,7 @@ gem 'chart-js-rails'
 gem 'simple_form'
 gem 'annotate'
 gem 'bootswatch-rails'
+gem 'dentaku'
 
 group :development, :test do
   gem 'byebug'

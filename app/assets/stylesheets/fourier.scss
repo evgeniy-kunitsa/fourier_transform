@@ -31,9 +31,15 @@ $screen-md-min: 992px;
           margin: 0 5px;
         }
 
-        input, select {
+        select {
           @media (min-width: $screen-md-min) {
             width: 70px;
+          }
+        }
+
+        input {
+          @media (min-width: $screen-md-min) {
+            width: 228px;
           }
         }
       }
