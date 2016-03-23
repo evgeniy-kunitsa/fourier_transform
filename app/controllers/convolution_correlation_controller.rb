@@ -1,4 +1,6 @@
 class ConvolutionCorrelationController < ApplicationController
+  include Math
+
   def index
   end
 
@@ -7,7 +9,7 @@ class ConvolutionCorrelationController < ApplicationController
     function_second = params[:function_second]
     @intervals = params[:intervals].to_i
 
-    period = PeriodCalculator.calculate(function_first) / @intervals
+    period = 2 * PI / params[:period_denominator].to_i / @intervals
 
     original_args = (0...@intervals).map { |interval| period * interval}
 
@@ -20,9 +22,6 @@ class ConvolutionCorrelationController < ApplicationController
     original_values_second = original_args.map do |arg|
       function_runner.run(arg).round(2)
     end
-
-    p original_values_first
-    p original_values_second
 
     @convolution = {
         simple: {

@@ -24,4 +24,7 @@
             = select_tag 'intervals',
                     options_for_select( (1..8).each.map { |rate| 2 ** rate }, 16 ),
                     class: "form-control"
+          .form-group
+            = label_tag "period", "T = 2 * PI /"
+            = text_field_tag 'period_denominator'
           = submit_tag 'Submit', class: "btn btn-primary"
