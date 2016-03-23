@@ -1,36 +1,25 @@
 module Correlation
   class Simple
-    attr_reader :first_points, :second_points, :result
 
-    def initialize(first_function_params, second_function_params, interval)
-      @first_points = Fourier::TransformManager
-        .new(first_function_params)
-        .original_function_plot_points
-      @second_points = Fourier::TransformManager
-        .new(second_function_params)
-        .original_function_plot_points
+    def initialize(first_function_points, second_function_points, interval)
+      @first_function_points = first_function_points
+      @second_function_points = second_function_points
       @interval = interval
-      initialize_result
-      calculate
-    end
-
-    private
-
-    def initialize_result
-      @result = {}
-      @result[:x] = @first_points[:x]
-      @result[:y] = []
+      @result = []
     end
 
     def calculate
       (0...@interval).each do |m|
         temp = 0
         (0...@interval).each do |h|
-          temp += @first_points[:y][h] * @second_points[:y][index(m + h)]
+          temp += @first_function_points[h] * @second_function_points[index(m + h)]
         end
-        @result[:y].push(temp / @interval)
+        @result.push(temp / @interval)
       end
+      @result
     end
+
+    private
 
     def index(number)
       return number if number < @interval

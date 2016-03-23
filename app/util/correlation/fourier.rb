@@ -2,6 +2,9 @@ module Correlation
   class Fourier
     include FourierTransform
 
+    DIRECT = -1
+    REVERSE = 1
+
     def initialize(first_function_points, second_function_points, interval)
       @first_function_points = first_function_points
       @second_function_points = second_function_points
@@ -12,9 +15,9 @@ module Correlation
       first_components = initialize_components(@first_function_points)
       second_components = initialize_components(@second_function_points)
       first_components = conjugate(first_components)
-      result_variables = multiply(first_components, second_components)
 
-      FourierTransform::Fast.reverse(result_variables)
+      result_variables = multiply(first_components, second_components)
+      FourierTransform::Fast.reverse(result_variables).map { |v| v / @first_function_points.size}
     end
 
     private
@@ -24,9 +27,12 @@ module Correlation
     end
 
     def multiply(first_components, second_components)
-      (0...@interval).map do |i|
-        first_components[i] * second_components[i]
+      result_components = []
+      (0...@interval).each do |i|
+        value = first_components[i] * second_components[i]
+        result_components[i] = value
       end
+      result_components
     end
 
     def conjugate(components)

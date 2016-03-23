@@ -7,7 +7,7 @@ class ConvolutionCorrelationController < ApplicationController
     function_second = params[:function_second]
     @intervals = params[:intervals].to_i
 
-    period = PeriodCalculator.calculate(function_first) / (@intervals - 1)
+    period = PeriodCalculator.calculate(function_first) / @intervals
 
     original_args = (0...@intervals).map { |interval| period * interval}
 
@@ -21,14 +21,31 @@ class ConvolutionCorrelationController < ApplicationController
       function_runner.run(arg).round(2)
     end
 
+    p original_values_first
+    p original_values_second
+
     @convolution = {
-        x: (0...@intervals).to_a,
-        y: Convolution::Fourier.new(original_values_first, original_values_second, @intervals).calculate
-    }
+        simple: {
+            x: (0...@intervals).to_a,
+            y: Convolution::Simple.new(original_values_first, original_values_second, @intervals).calculate.map { |v| v.real }
+
+        },
+        fourier: {
+            x: (0...@intervals).to_a,
+            y: Convolution::Fourier.new(original_values_first, original_values_second, @intervals).calculate.map { |v| v.real }
+        }
+       }
 
     @correlation = {
-        x: (0...@intervals).to_a,
-        y: Correlation::Fourier.new(original_values_first, original_values_second, @intervals).calculate
+        simple: {
+            x: (0...@intervals).to_a,
+            y: Correlation::Simple.new(original_values_first, original_values_second, @intervals).calculate.map { |v| v.real }
+
+        },
+        fourier: {
+            x: (0...@intervals).to_a,
+            y: Correlation::Fourier.new(original_values_first, original_values_second, @intervals).calculate.map { |v| v.real }
+        }
     }
 
     respond_to do |format|

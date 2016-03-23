@@ -7,7 +7,7 @@ class FourierController < ApplicationController
   def show
     function = params[:function]
     @intervals = params[:intervals].to_i
-    period = PeriodCalculator.calculate(function) / (@intervals - 1)
+    period = PeriodCalculator.calculate(function) / @intervals
 
     function_runner = FunctionRunner.new(function)
     original_args = (0...@intervals).map { |interval| period * interval}
