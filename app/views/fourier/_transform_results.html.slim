@@ -21,8 +21,8 @@ ul.nav.nav-tabs
                 plot_id: "#{mode}_direct_conversion",
                 chart_type: mode == "discrete" ? "bar" : "line",
                 values: { \
-                  x: conversion[:result][:direct][:indices],
-                  y: conversion[:result][:direct][:values], \
+                  x: (0...intervals).to_a,
+                  y: conversion[:direct], \
                 } \
               }
 
@@ -33,12 +33,12 @@ ul.nav.nav-tabs
                 plot_id: "#{mode}_reverse_conversion",
                 chart_type: "line",
                 values: { \
-                  x: conversion[:result][:reverse][:indices],
-                  y: conversion[:result][:reverse][:values] \
+                  x: (0...intervals).to_a,
+                  y: conversion[:reverse] \
                 } \
               }
 
-  - if mode == "discrete"
-    #conversion_data.tab-pane.fade
-      == render partial: "interactive_conversion_data_table",
-                locals: { direct_conversion: conversion[:direct] }
+  /- if mode == "discrete"
+  /  #conversion_data.tab-pane.fade
+  /    == render partial: "interactive_conversion_data_table",
+  /              locals: { direct_conversion: conversion[:direct] }

@@ -1,0 +1,19 @@
+$("#convolution")
+  .html("<%= escape_javascript(
+    render  partial: "results",
+            locals: {
+              operation: "Convolution",
+              intervals: @intervals,
+              plot_data: @convolution
+            }
+  )%>");
+
+$("#correlation")
+    .html("<%= escape_javascript(
+    render  partial: "results",
+            locals: {
+              operation: "Correlation",
+              intervals: @intervals,
+              plot_data: @correlation
+            }
+  )%>");
