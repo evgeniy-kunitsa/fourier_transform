@@ -1,6 +1,6 @@
 update_function = ->
   $('#function-container').text(
-    $('#function').val()
+    $('#function_first').val() + " and " + $('#function_second').val()
   )
 
 $ ->

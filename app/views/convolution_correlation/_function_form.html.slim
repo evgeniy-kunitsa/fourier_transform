@@ -1,4 +1,4 @@
-= javascript_include_tag "fourier_function_form"
+= javascript_include_tag "function_form"
 
 #function-input
   .panel.panel-primary
@@ -7,18 +7,24 @@
         #function-container[
           role="button" data-toggle="collapse" data-target="#function_input_collapse"
           aria-expanded="false" aria-controls="function_input_modal"
-        ] Click to create a function
+        ] Click to create functions
 
     .panel-collapse.collapse#function_input_collapse role="tabpanel"
       .panel-body
-        = form_tag(fourier_path(format: :js), method: 'post', remote: true,
+        = form_tag(convolution_correlation_path(format: :js), method: 'post', remote: true,
           class:"form-inline", id: "function-form") do
           .form-group
-            = label_tag "function", "Function: "
-            = text_field_tag 'function', nil, class: "form-control"
+            = label_tag "function_first", "First Function: "
+            = text_field_tag 'function_first', nil, class: "form-control"
+          .form-group
+            = label_tag "function_second", "Second Function: "
+            = text_field_tag 'function_second', nil, class: "form-control"
           .form-group
             = label_tag "intervals", "N = "
             = select_tag 'intervals',
                     options_for_select( (1..8).each.map { |rate| 2 ** rate }, 16 ),
                     class: "form-control"
+          .form-group
+            = label_tag "period", "T = 2 * PI /"
+            = text_field_tag 'period_denominator'
           = submit_tag 'Submit', class: "btn btn-primary"
