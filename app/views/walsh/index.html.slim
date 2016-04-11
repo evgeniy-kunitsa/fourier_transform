@@ -1,0 +1,26 @@
+= javascript_include_tag "fourier_transform"
+= javascript_include_tag "interactive_table"
+
+= render "layouts/navbar"
+
+.container#fourier-wrapper
+  .row#fourier-function
+    .col-md-12
+      = render "function_form"
+  .row#fourier-results
+    .col.col-md-3
+      ul.nav.nav-pills.nav-stacked
+        li
+          a data-toggle="tab" href="#discrete_fourier_transform"
+            | Discrete Walsh Transform
+        li
+          a data-toggle="tab" href="#fast_fourier_transform"
+            | Fast Walsh Transform
+        li
+          a data-toggle="tab" class="chart-trigger" href="#original_function"
+            | Original Function
+    .col.col-md-9
+      .tab-content
+        .tab-pane.fade#discrete_fourier_transform
+        .tab-pane.fade#fast_fourier_transform
+        .tab-pane.fade#original_function

@@ -1,0 +1,9 @@
+.plot id="#{plot_id}" chart_type="#{chart_type}"
+  = content_tag "div",
+          id: "#{plot_id}_data",
+          class: "chart_data",
+          data: { \
+            indices: values[:x],
+            values: values[:y], \
+          } do
+  canvas.chart_canvas id="#{plot_id}_canvas" width=800 height=400

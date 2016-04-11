@@ -6,4 +6,7 @@ Rails.application.routes.draw do
 
   get "/convolution_correlation" => "convolution_correlation#index"
   post "/convolution_correlation" => "convolution_correlation#show"
+
+  get "/walsh" => "walsh#index"
+  post "/walsh" => "walsh#show"
 end
