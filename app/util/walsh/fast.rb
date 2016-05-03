@@ -1,6 +1,6 @@
 module Walsh
   class Fast
-    include Walsh::Common
+    include Common
 
     def self.transform(rate, values, intervals = values.size)
       primary_result = inner_loop(values, intervals)

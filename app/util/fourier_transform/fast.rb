@@ -1,6 +1,6 @@
 module FourierTransform
   class Fast
-    include FourierTransform::Common
+    include Common
 
     def self.transform(direction, rate, values, intervals = values.size)
       primary_result = inner_loop(direction, Complicator.run(values), intervals)
