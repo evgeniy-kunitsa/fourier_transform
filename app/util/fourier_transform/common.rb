@@ -27,8 +27,6 @@ module FourierTransform
         direct_result = transform(DIRECT, 1.0 / values.size, values)
         reverse_result = transform(REVERSE, direct_result.size, direct_result)
 
-        p reverse_result
-
         {
           direct: direct_result.map { |v| v.abs },
           reverse: reverse_result.map { |v| v.real }
@@ -38,8 +36,6 @@ module FourierTransform
       base.class.send(:define_method, :complete_arg) do |values|
         direct_result = transform(DIRECT, 1.0 / values.size, values)
         reverse_result = transform(REVERSE, direct_result.size, direct_result)
-
-        p reverse_result
 
         {
             direct: direct_result.map { |v| v.arg },
