@@ -52,7 +52,6 @@ module Walsh
 
     def self.power(k, n, r)
       n = ("0" + n.to_s(2))
-      byebug
       n[r - k + 1].to_i ^ n[r - k].to_i
     end
 

@@ -2,6 +2,8 @@ module Walsh
   class Discrete
     include Common
 
+    #TODO: fix (works incorrectly)
+
     def self.transform(rate, values, intervals = values.size)
       r = Math.log2(intervals)
 

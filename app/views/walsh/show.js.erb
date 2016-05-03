@@ -1,13 +1,3 @@
-$("#discrete_fourier_transform")
-  .html("<%= escape_javascript(
-    render  partial: "transform_results",
-            locals: {
-              mode: "discrete",
-              intervals: @intervals,
-              conversion: @conversion[:discrete]
-            }
-  )%>");
-
 $("#fast_fourier_transform")
   .html("<%= escape_javascript(
     render  partial: "transform_results",
@@ -17,6 +7,7 @@ $("#fast_fourier_transform")
               conversion: @conversion[:fast]
             }
   )%>");
+
 $("#original_function")
   .html("<%= escape_javascript(
     render  partial: "plot",
