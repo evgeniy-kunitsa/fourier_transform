@@ -9,4 +9,7 @@ Rails.application.routes.draw do
 
   get "/walsh" => "walsh#index"
   post "/walsh" => "walsh#show"
+
+  get "/wavelet" => "wavelet#index"
+  post "/wavelet" => "wavelet#show"
 end

@@ -1,0 +1,15 @@
+ul.nav.nav-tabs
+  - values.each_with_index do |result, index|
+    li
+      a data-toggle="tab" class="chart-trigger" href="#step_#{index}"
+        | Step #{index}
+
+.tab-content#transform-results-content
+  - values.each_with_index do |result, index|
+    .tab-pane.fade id="step_#{index}"
+      == render partial: "common/plot",
+        locals: { plot_title: "Step #{index}",
+                  plot_id: "intermed_#{index}",
+                  chart_type: "line",
+                  values: { x: (0...result.size).to_a,
+                            y: result } }

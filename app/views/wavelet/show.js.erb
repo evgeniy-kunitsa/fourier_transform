@@ -1,20 +1,28 @@
-$("#discrete_fourier_transform")
+$("#direct")
   .html("<%= escape_javascript(
-    render  partial: "transform_results",
+    render  partial: "result",
             locals: {
-              mode: "discrete",
+              mode: "direct",
               intervals: @intervals,
-              conversion: @conversion[:discrete]
+              values: @result[:direct]
             }
   )%>");
-
-$("#fast_fourier_transform")
-  .html("<%= escape_javascript(
-    render  partial: "transform_results",
+$("#intermed")
+    .html("<%= escape_javascript(
+    render  partial: "intermed",
             locals: {
-              mode: "fast",
+              mode: "intermed",
               intervals: @intervals,
-              conversion: @conversion[:fast]
+              values: @result[:intermed]
+            }
+  )%>");
+$("#reverse")
+  .html("<%= escape_javascript(
+    render  partial: "result",
+            locals: {
+              mode: "reverse",
+              intervals: @intervals,
+              values: @result[:reverse]
             }
   )%>");
 $("#original_function")
