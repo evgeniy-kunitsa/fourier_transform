@@ -1,6 +1,6 @@
 $("#convolution")
   .html("<%= escape_javascript(
-    render  partial: "results",
+    render  partial: "result",
             locals: {
               operation: "Convolution",
               intervals: @intervals,
@@ -10,7 +10,7 @@ $("#convolution")
 
 $("#correlation")
     .html("<%= escape_javascript(
-    render  partial: "results",
+    render  partial: "result",
             locals: {
               operation: "Correlation",
               intervals: @intervals,

@@ -7,6 +7,7 @@ $("#direct")
               values: @result[:direct]
             }
   )%>");
+
 $("#intermed")
     .html("<%= escape_javascript(
     render  partial: "intermed",
@@ -16,6 +17,7 @@ $("#intermed")
               values: @result[:intermed]
             }
   )%>");
+
 $("#reverse")
   .html("<%= escape_javascript(
     render  partial: "result",
@@ -25,6 +27,7 @@ $("#reverse")
               values: @result[:reverse]
             }
   )%>");
+
 $("#original_function")
   .html("<%= escape_javascript(
     render  partial: "common/plot",

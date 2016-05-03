@@ -16,27 +16,19 @@ ul.nav.nav-tabs
 .tab-content#transform-results-content
   .tab-pane.fade id="#{mode}_direct_conversion_tab"
     == render partial: "common/plot",
-              locals: { \
-                plot_title: "Direct Conversion Result",
-                plot_id: "#{mode}_direct_conversion",
-                chart_type: mode == "discrete" ? "bar" : "line",
-                values: { \
-                  x: (0...intervals).to_a,
-                  y: conversion[:direct], \
-                } \
-              }
+              locals: { plot_title: "Direct Conversion Result",
+                        plot_id: "#{mode}_direct_conversion",
+                        chart_type: mode == "discrete" ? "bar" : "line",
+                        values: { x: (0...intervals).to_a,
+                                  y: conversion[:direct] } }
 
   .tab-pane.fade id="#{mode}_reverse_conversion_tab"
     == render partial: "common/plot",
-              locals: { \
-                plot_title: "Reverse Conversion Result",
-                plot_id: "#{mode}_reverse_conversion",
-                chart_type: "line",
-                values: { \
-                  x: (0...intervals).to_a,
-                  y: conversion[:reverse] \
-                } \
-              }
+              locals: { plot_title: "Reverse Conversion Result",
+                        plot_id: "#{mode}_reverse_conversion",
+                        chart_type: "line",
+                        values: { x: (0...intervals).to_a,
+                                  y: conversion[:reverse] } }
 
   /- if mode == "discrete"
   /  #conversion_data.tab-pane.fade

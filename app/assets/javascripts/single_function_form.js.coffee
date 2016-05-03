@@ -7,5 +7,4 @@ $ ->
   $("#function-form").on "ajax:success", (event) ->
     $("#function_input_collapse").collapse('hide')
     update_function()
-  $("#function-form-cancel-button").click ->
-    $("#function_input_collapse").collapse('hide')
+

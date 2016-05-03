@@ -1,6 +1,6 @@
 module Walsh
   class Fast
-    include Common
+    include Walsh::Common
 
     def self.transform(rate, values, intervals = values.size)
       primary_result = inner_loop(values, intervals)
@@ -18,7 +18,7 @@ module Walsh
       b = []
       c = []
 
-      (0...intervals / 2).each do |j|
+      (0...(intervals / 2)).each do |j|
         b.push(values[j] + values[j + intervals / 2])
         c.push((values[j] - values[j + intervals / 2]))
       end

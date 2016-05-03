@@ -3,20 +3,22 @@
 
 = render "layouts/navbar"
 
-.container#fourier-wrapper
-  .row#fourier-function
+.container#wrapper
+  h1 Walsh Transform
+  hr
+  .row
     .col-md-12
       = render "common/single_function_form", submit_action: walsh_path(format: :js)
-  .row#fourier-results
+  .row#result
     .col.col-md-3
       ul.nav.nav-pills.nav-stacked
         li
-          a data-toggle="tab" href="#fast_fourier_transform"
+          a data-toggle="tab" href="#fast_transform"
             | Fast Walsh Transform
         li
           a data-toggle="tab" class="chart-trigger" href="#original_function"
             | Original Function
     .col.col-md-9
       .tab-content
-        .tab-pane.fade#fast_fourier_transform
+        .tab-pane.fade#fast_transform
         .tab-pane.fade#original_function

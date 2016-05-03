@@ -51,9 +51,9 @@ refresh_active_charts = () ->
         draw_chart_by_trigger($(trigger))
 
 $ ->
-  $("#fourier-results").hide()
+  $("#result").hide()
   $("#function-form").on "ajax:success", (event) ->
-    $("#fourier-results").show()
+    $("#result").show()
     refresh_active_charts()
     $(".chart-trigger").on "shown.bs.tab", (event) ->
       draw_chart_by_trigger($(this))

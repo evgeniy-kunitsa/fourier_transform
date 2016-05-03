@@ -1,23 +1,22 @@
-.home-wrapper
-  = link_to "/fourier/", class: "home-top home-left home-link" do
-    p
-      | fourier
-      br
-      | transform
-  = link_to "/convolution_correlation/", class: "home-top home-right home-link" do
-    p
-      | convolution
-      br
-      | and
-      br
-      | correlation
-  = link_to "/walsh", class: "home-left home-bottom home-link" do
-    p
-      | walsh
-      br
-      | transform
-  = link_to "/wavelet/", class: "home-bottom home-right home-link" do
-    p
-      | wavelet
-      br
-      | transform
+.container-fluid.home-wrapper
+  .row
+    = link_to "/fourier/", class: "col-md-6 col-xs-12 col-sm-12 home-link" do
+      p
+        | fourier
+        br
+        | transform
+    = link_to "/convolution_correlation/", class: "col-md-6 col-xs-12 col-sm-12 home-link" do
+      p
+        | convolution
+        br
+        | correlation
+    = link_to "/walsh", class: "col-md-6 col-sm-12 col-xs-12 home-link" do
+      p
+        | walsh
+        br
+        | transform
+    = link_to "/wavelet/", class: "col-md-6 col-sm-12 col-xs-12 home-link"  do
+      p
+        | wavelet
+        br
+        | transform

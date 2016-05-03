@@ -4,10 +4,8 @@ $link-text-color: rgba(255, 255, 255, 0.7);
 $link-hover-text-color: rgba(255, 255, 255, 0.9);
 
 .home-wrapper {
-  background-image: image-url("sound_wave.jpg");
-  background-position: center;
-  background-size: cover;
-  font-size: 6em;
+  background-color: #2FA4E7;
+  font-size: 5em;
   line-height: 1em;
   min-height: 100vh;
   min-width: 100vw;
@@ -27,47 +25,19 @@ $link-hover-text-color: rgba(255, 255, 255, 0.9);
 
 .home-link {
   color: $link-text-color;
-  display: table;
-  max-width: 50vw;
-  min-height: 50vh;
-  min-width: 50vw;
+  height: 50vh;
   overflow-wrap: break-word;
-  position: absolute;
+  position: relative;
   text-decoration: none !important;
 
-  &:hover {
-    background-color: $background-dim-color;
+  &:hover  {
     color: $link-hover-text-color;
   }
 
   p {
-    display: table-cell;
-    vertical-align: middle;
-  }
-}
-
-.home-top {
-  top: 0;
-}
-
-.home-bottom {
-  bottom: 0;
-}
-
-.home-left {
-  left: 0;
-  text-align: left;
-
-  p {
-    padding-left: 30px;
-  }
-}
-
-.home-right {
-  right: 0;
-  text-align: right;
-
-  p {
-    padding-right: 30px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 }
