@@ -1,0 +1,6 @@
+== render partial: "common/plot",
+          locals: { plot_title: "Result",
+                    plot_id: "#{mode}",
+                    chart_type: "line",
+                    values: { x: (0...intervals).to_a,
+                              y: values } }

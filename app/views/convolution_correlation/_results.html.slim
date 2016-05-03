@@ -8,7 +8,7 @@ ul.nav.nav-tabs
 
 .tab-content#results-content
   .tab-pane.fade id="#{operation}_simple_tab"
-    == render partial: "fourier/plot",
+    == render partial: "common/plot",
               locals: { \
                 plot_title: "Simple Mode",
                 plot_id: "#{operation}_simple_mode",
@@ -16,7 +16,7 @@ ul.nav.nav-tabs
                 values: plot_data[:simple] \
               }
   .tab-pane.fade id="#{operation}_fourier_tab"
-    == render partial: "fourier/plot",
+    == render partial: "common/plot",
             locals: { \
                   plot_title: "Fourier Mode",
                     plot_id: "#{operation}_fourier_mode",

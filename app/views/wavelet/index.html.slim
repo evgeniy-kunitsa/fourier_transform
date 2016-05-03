@@ -11,16 +11,20 @@
     .col.col-md-3
       ul.nav.nav-pills.nav-stacked
         li
-          a data-toggle="tab" href="#discrete_fourier_transform"
-            | Discrete Fourier Transform
+          a data-toggle="tab" class="chart-trigger" href="#direct"
+            | Direct
         li
-          a data-toggle="tab" href="#fast_fourier_transform"
-            | Fast Fourier Transform
+          a data-toggle="tab" class="chart-trigger" href="#intermed"
+            | Intermediatery
+        li
+          a data-toggle="tab" class="chart-trigger" href="#reverse"
+            | Reverse
         li
           a data-toggle="tab" class="chart-trigger" href="#original_function"
-            | Original Function
+            | Original
     .col.col-md-9
       .tab-content
-        .tab-pane.fade#discrete_fourier_transform
-        .tab-pane.fade#fast_fourier_transform
+        .tab-pane.fade#direct
+        .tab-pane.fade#intermed
+        .tab-pane.fade#reverse
         .tab-pane.fade#original_function
