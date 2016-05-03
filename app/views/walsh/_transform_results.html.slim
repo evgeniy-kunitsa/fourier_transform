@@ -8,7 +8,7 @@ ul.nav.nav-tabs
 
 .tab-content#transform-results-content
   .tab-pane.fade id="#{mode}_direct_conversion_tab"
-    == render partial: "plot",
+    == render partial: "common/plot",
               locals: { plot_title: "Direct Conversion Result",
                         plot_id: "#{mode}_direct_conversion",
                         chart_type: mode == "discrete" ? "bar" : "line",
@@ -16,7 +16,7 @@ ul.nav.nav-tabs
                                   y: conversion[:direct] } }
 
   .tab-pane.fade id="#{mode}_reverse_conversion_tab"
-    == render partial: "plot",
+    == render partial: "common/plot",
               locals: { plot_title: "Reverse Conversion Result",
                         plot_id: "#{mode}_reverse_conversion",
                         chart_type: "line",

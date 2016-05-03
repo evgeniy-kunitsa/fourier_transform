@@ -10,7 +10,7 @@ $("#fast_fourier_transform")
 
 $("#original_function")
   .html("<%= escape_javascript(
-    render  partial: "plot",
+    render  partial: "common/plot",
             locals: {
               plot_title: "Original function",
               plot_id: "original_function_plot",
