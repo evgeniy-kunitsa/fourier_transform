@@ -3,6 +3,8 @@
 = render "layouts/navbar"
 
 .container#fourier-wrapper
+  h1 Wavelet Transform
+  hr
   .row#fourier-function
     .col-md-12
       = render "common/single_function_form", submit_action: wavelet_path(format: :js)

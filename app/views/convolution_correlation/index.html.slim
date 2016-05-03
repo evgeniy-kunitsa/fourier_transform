@@ -3,6 +3,8 @@
 = render "layouts/navbar"
 
 .container#fourier-wrapper
+  h1 Convolution & Correlation
+  hr
   .row#fourier-function
     .col-md-12
       = render "common/double_function_form", submit_action: convolution_correlation_path(format: :js)
