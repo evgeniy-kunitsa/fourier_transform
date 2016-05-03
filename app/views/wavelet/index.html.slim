@@ -1,12 +1,11 @@
 = javascript_include_tag "fourier_transform"
-= javascript_include_tag "interactive_table"
 
 = render "layouts/navbar"
 
 .container#fourier-wrapper
   .row#fourier-function
     .col-md-12
-      = render "common/single_function_form"
+      = render "common/single_function_form", submit_action: wavelet_path(format: :js)
   .row#fourier-results
     .col.col-md-3
       ul.nav.nav-pills.nav-stacked

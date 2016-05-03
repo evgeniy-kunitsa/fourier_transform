@@ -11,7 +11,7 @@
 
     .panel-collapse.collapse#function_input_collapse role="tabpanel"
       .panel-body
-        = form_tag(convolution_correlation_path(format: :js), method: 'post', remote: true,
+        = form_tag(submit_action, method: 'post', remote: true,
           class:"form-inline", id: "function-form") do
           .form-group
             = label_tag "function_first", "First Function: "

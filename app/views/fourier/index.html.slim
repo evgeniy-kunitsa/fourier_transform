@@ -6,7 +6,7 @@
 .container#fourier-wrapper
   .row#fourier-function
     .col-md-12
-      = render "common/single_function_form"
+      = render "common/single_function_form", submit_action: fourier_path(format: :js)
   .row#fourier-results
     .col.col-md-3
       ul.nav.nav-pills.nav-stacked
