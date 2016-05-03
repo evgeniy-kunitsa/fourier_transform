@@ -9,13 +9,13 @@ ul.nav.nav-tabs
     a data-toggle="tab" class="chart-trigger" href="##{mode}_reverse_conversion_tab"
       | Reverse Conversion Result
 
-  - if mode == "discrete"
-    li
-      a data-toggle="tab" href="#conversion_data" Conversion Data
+  /- if mode == "discrete"
+  /  li
+  /    a data-toggle="tab" href="#conversion_data" Conversion Data
 
 .tab-content#transform-results-content
   .tab-pane.fade id="#{mode}_direct_conversion_tab"
-    == render partial: "plot",
+    == render partial: "common/plot",
               locals: { \
                 plot_title: "Direct Conversion Result",
                 plot_id: "#{mode}_direct_conversion",
@@ -27,7 +27,7 @@ ul.nav.nav-tabs
               }
 
   .tab-pane.fade id="#{mode}_reverse_conversion_tab"
-    == render partial: "plot",
+    == render partial: "common/plot",
               locals: { \
                 plot_title: "Reverse Conversion Result",
                 plot_id: "#{mode}_reverse_conversion",
