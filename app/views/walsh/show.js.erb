@@ -1,0 +1,20 @@
+$("#fast_fourier_transform")
+  .html("<%= escape_javascript(
+    render  partial: "transform_results",
+            locals: {
+              mode: "fast",
+              intervals: @intervals,
+              conversion: @conversion[:fast]
+            }
+  )%>");
+
+$("#original_function")
+  .html("<%= escape_javascript(
+    render  partial: "common/plot",
+            locals: {
+              plot_title: "Original function",
+              plot_id: "original_function_plot",
+              chart_type: "line",
+              values: @original_plot_points
+            }
+  )%>");

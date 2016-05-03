@@ -1,0 +1,24 @@
+ul.nav.nav-tabs
+  li
+    a data-toggle="tab" class="chart-trigger" href="##{mode}_direct_conversion_tab"
+      | Direct Conversion Result
+  li
+    a data-toggle="tab" class="chart-trigger" href="##{mode}_reverse_conversion_tab"
+      | Reverse Conversion Result
+
+.tab-content#transform-results-content
+  .tab-pane.fade id="#{mode}_direct_conversion_tab"
+    == render partial: "common/plot",
+              locals: { plot_title: "Direct Conversion Result",
+                        plot_id: "#{mode}_direct_conversion",
+                        chart_type: mode == "discrete" ? "bar" : "line",
+                        values: { x: (0...intervals).to_a,
+                                  y: conversion[:direct] } }
+
+  .tab-pane.fade id="#{mode}_reverse_conversion_tab"
+    == render partial: "common/plot",
+              locals: { plot_title: "Reverse Conversion Result",
+                        plot_id: "#{mode}_reverse_conversion",
+                        chart_type: "line",
+                        values: { x: (0...intervals).to_a,
+                                  y: conversion[:reverse]  }  }
