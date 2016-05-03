@@ -5,7 +5,7 @@
 .container#fourier-wrapper
   .row#fourier-function
     .col-md-12
-      = render "function_form"
+      = render "common/double_function_form", submit_action: convolution_correlation_path(format: :js)
   .row#fourier-results
     .col.col-md-3
       ul.nav.nav-pills.nav-stacked
