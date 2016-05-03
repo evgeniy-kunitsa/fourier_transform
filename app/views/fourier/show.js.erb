@@ -1,6 +1,6 @@
-$("#discrete_fourier_transform")
+$("#discrete_transform")
   .html("<%= escape_javascript(
-    render  partial: "transform_results",
+    render  partial: "result",
             locals: {
               mode: "discrete",
               intervals: @intervals,
@@ -8,15 +8,16 @@ $("#discrete_fourier_transform")
             }
   )%>");
 
-$("#fast_fourier_transform")
+$("#fast_transform")
   .html("<%= escape_javascript(
-    render  partial: "transform_results",
+    render  partial: "result",
             locals: {
               mode: "fast",
               intervals: @intervals,
               conversion: @conversion[:fast]
             }
   )%>");
+
 $("#original_function")
   .html("<%= escape_javascript(
     render  partial: "common/plot",

@@ -1,6 +1,6 @@
 module Walsh
   class Discrete
-    include Common
+    include Walsh::Common
 
     #TODO: fix (works incorrectly)
 

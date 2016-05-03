@@ -2,13 +2,13 @@
 
 = render "layouts/navbar"
 
-.container#fourier-wrapper
+.container#wrapper
   h1 Wavelet Transform
   hr
-  .row#fourier-function
+  .row
     .col-md-12
       = render "common/single_function_form", submit_action: wavelet_path(format: :js)
-  .row#fourier-results
+  .row#result
     .col.col-md-3
       ul.nav.nav-pills.nav-stacked
         li

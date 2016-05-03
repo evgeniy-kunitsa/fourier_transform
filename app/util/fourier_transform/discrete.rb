@@ -1,6 +1,6 @@
 module FourierTransform
   class Discrete
-    include Common
+    include FourierTransform::Common
 
     def self.transform(direction, rate, values, intervals = values.size)
       (0...intervals).map do |m|

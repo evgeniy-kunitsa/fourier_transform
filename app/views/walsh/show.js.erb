@@ -1,6 +1,6 @@
-$("#fast_fourier_transform")
+$("#fast_transform")
   .html("<%= escape_javascript(
-    render  partial: "transform_results",
+    render  partial: "result",
             locals: {
               mode: "fast",
               intervals: @intervals,
