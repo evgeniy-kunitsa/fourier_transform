@@ -5,7 +5,7 @@ $link-hover-text-color: rgba(255, 255, 255, 0.9);
 
 .home-wrapper {
   background-color: #2FA4E7;
-  font-size: 5em;
+  font-size: 4em;
   line-height: 1em;
   min-height: 100vh;
   min-width: 100vw;
@@ -30,7 +30,7 @@ $link-hover-text-color: rgba(255, 255, 255, 0.9);
   position: relative;
   text-decoration: none !important;
 
-  &:hover  {
+  &:hover {
     color: $link-hover-text-color;
   }
 

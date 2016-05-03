@@ -1,6 +1,6 @@
 module Walsh
   class Discrete
-    include Walsh::Common
+    include Common
 
     #TODO: fix (works incorrectly)
 
@@ -14,7 +14,7 @@ module Walsh
 
     def self.inner_loop(values, r, m)
       (0...r).reduce(0) do |value, n|
-        value + values[n] * Walsh::Common::walsh(m, n, r)
+        value + values[n] * Common::walsh(m, n, r)
       end
     end
   end

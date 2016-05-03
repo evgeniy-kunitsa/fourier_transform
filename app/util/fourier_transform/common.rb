@@ -7,15 +7,15 @@ module FourierTransform
 
     def self.included(base)
       base.class.send(:define_method, :direct) do |values|
-        transform(DIRECT, 1.0 / values.size, values)
+        base.transform(DIRECT, 1.0 / values.size, values)
       end
       base.class.send(:define_method, :reverse) do |values|
-        transform(REVERSE, values.size, values)
+        base.transform(REVERSE, values.size, values)
       end
 
       base.class.send(:define_method, :complete) do |values|
-        direct_result = transform(DIRECT, 1.0 / values.size, values)
-        reverse_result = transform(REVERSE, direct_result.size, direct_result)
+        direct_result = base.transform(DIRECT, 1.0 / values.size, values)
+        reverse_result = base.transform(REVERSE, direct_result.size, direct_result)
 
         {
           direct: direct_result,
@@ -24,8 +24,8 @@ module FourierTransform
       end
 
       base.class.send(:define_method, :complete_abs) do |values|
-        direct_result = transform(DIRECT, 1.0 / values.size, values)
-        reverse_result = transform(REVERSE, direct_result.size, direct_result)
+        direct_result = base.transform(DIRECT, 1.0 / values.size, values)
+        reverse_result = base.transform(REVERSE, direct_result.size, direct_result)
 
         {
           direct: direct_result.map { |v| v.abs },
@@ -34,8 +34,8 @@ module FourierTransform
       end
 
       base.class.send(:define_method, :complete_arg) do |values|
-        direct_result = transform(DIRECT, 1.0 / values.size, values)
-        reverse_result = transform(REVERSE, direct_result.size, direct_result)
+        direct_result = base.transform(DIRECT, 1.0 / values.size, values)
+        reverse_result = base.transform(REVERSE, direct_result.size, direct_result)
 
         {
             direct: direct_result.map { |v| v.arg },

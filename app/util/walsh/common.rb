@@ -8,16 +8,16 @@ module Walsh
 
     def self.included(base)
       base.class.send(:define_method, :direct) do |values|
-        transform(1.0 / values.size, values)
+        base.transform(1.0 / values.size, values)
       end
 
       base.class.send(:define_method, :reverse) do |values|
-        transform(values.size, values)
+        base.transform(values.size, values)
       end
 
       base.class.send(:define_method, :complete) do |values|
-        direct_result = transform(1.0 / values.size, values)
-        reverse_result = transform(values.size, direct_result)
+        direct_result = base.transform(1.0 / values.size, values)
+        reverse_result = base.transform(values.size, direct_result)
 
         {
           direct: direct_result,
@@ -26,8 +26,8 @@ module Walsh
       end
 
       base.class.send(:define_method, :complete_abs) do |values|
-        direct_result = transform(1.0 / values.size, values)
-        reverse_result = transform(values.size, direct_result)
+        direct_result = base.transform(1.0 / values.size, values)
+        reverse_result = base.transform(values.size, direct_result)
 
         {
           direct: direct_result.map { |v| v.abs },
@@ -36,8 +36,8 @@ module Walsh
       end
 
       base.class.send(:define_method, :complete_arg) do |values|
-        direct_result = transform(1.0 / values.size, values)
-        reverse_result = transform(values.size, direct_result)
+        direct_result = base.transform(1.0 / values.size, values)
+        reverse_result = base.transform(values.size, direct_result)
 
         {
           direct: direct_result.map { |v| v.arg },
